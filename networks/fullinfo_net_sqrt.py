@@ -16,32 +16,39 @@ def singleVsMultiple(size, breadth, num_nets, split_factor):
     training_output = [sqrt(datum[0]) for datum in training_input]
     testing_output = [sqrt(datum[0]) for datum in testing_input]
 
-    # Clean Up Data for Training
-    training_input_sets = list(split_data(training_input, split_factor))
-    training_output_sets = list(split_data(training_output, split_factor))
-
     # Instantiate Nets
     single_net = MLPRegressor()
     multiple_nets = [MLPRegressor() for i in range(num_nets)]
-    multiple_nets_fullinfo = [MLPRegressor() for i in range(num_nets)]
 
     # Train Nets
     single_net.fit(training_input, training_output)
-    multiple_nets = [multiple_nets[i].fit(training_input_sets[i], training_output_sets[i]) for i in range(num_nets)]
-    multiple_nets_fullinfo = [multiple_nets_fullinfo[i].fit(training_input, training_output) for i in range(num_nets)]
+    multiple_nets = [multiple_nets[i].fit(training_input, training_output) for i in range(num_nets)]
 
     # Test Nets
     single_prediction = single_net.predict(testing_input)
     multiple_predictions = [multiple_nets[i].predict(testing_input) for i in range(num_nets)]
-    multiple_predictions_fullinfo = [multiple_nets_fullinfo[i].predict(testing_input) for i in range(num_nets)]
+
+    # Checking Accuracy (Print Out)
+    # for i in range(size):
+    #     print(testing_output[i], single_prediction[i])
+    #     print("////////////////////////////////////")
+    #     for j in range(num_nets):
+    #         print(testing_output[i], multiple_predictions[j][i])
+    #     print("####################################")
+
+    # Checking Accuracy (Mean Squared Error)
+    # single_net_error = (np.sum([(single_prediction[i] - testing_output[i])**2 for i in range(size)]))/size
+    # print("Single Net MSE: ",single_net_error)
+    # multiple_nets_errors = []
+    # for i in range(num_nets):
+    #     error = (np.sum([(multiple_predictions[i][j] - testing_output[j])**2 for j in range(size)]))/size
+    #     multiple_nets_errors.append(error)
+    #     print("Other Net MSE: ", error)
 
     # Checking Accuracy (Mean Square Error - Median Composite Estimate)
     single_net_error = (np.sum([(single_prediction[i] - testing_output[i])**2 for i in range(size)]))/size
+    print("Single Net MSE: ",single_net_error)
     multiple_nets_error = (np.sum([ (np.average([ multiple_predictions[j][i] for j in range(num_nets) ]) - testing_output[i])**2 for i in range(size)]))/size
-    multiple_nets_error_fullinfo = (np.sum([ (np.average([ multiple_predictions_fullinfo[j][i] for j in range(num_nets) ]) - testing_output[i])**2 for i in range(size)]))/size
+    print("Multiple Net MSE: ", multiple_nets_error)
 
-    print("1")
-    return (single_net_error, multiple_nets_error, multiple_nets_error_fullinfo)
-
-
-
+    return (single_net_error, multiple_nets_error)
