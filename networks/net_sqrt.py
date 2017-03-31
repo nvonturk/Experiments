@@ -1,91 +1,124 @@
-from sklearn.neural_network import MLPClassifier as MLPC
+from sklearn.neural_network import MLPRegressor
 from math import *
 import numpy as np
 
-def experimentSingleNet(training_sizes, iterations, breadth):
-    for size in training_sizes:
-            rand = np.random.uniform
-            training_data = rand(0.0, breadth, size)
-            testing_data = rand(0.0, breadth, size)
-            performance = []
-            for i in range(iterations):
-                # TODO: check this trainAndTestSingleNet call
-                performance.append(trainAndTestSingleNet(training_data, testing_data))
-            print(np.average(performance))
 
-def experimentMultipleNets(num_nets, training_sizes, iterations, breadth):
-    for size in training_sizes:
-        rand = np.random.uniform
-        training_data = rand(0.0, breadth, size)
-        testing_data = rand(0.0, breadth, size)
-        testing_data = [[datum] for datum in testing_data]
+# Method for splitting list of data into smaller lists with roughly even numbers
+def split_data(data, num_nets):
+    for i in range(0, len(data), num_nets):
+        yield data[i:i + num_nets]
 
-        chunk_size = int(size/num_nets)
+def detectOverlap(training_input_sets):
+    # Try to find average overlap using Jaccard index
 
-        split_training_data = [training_data[i:i+chunk_size] for i in range(0, len(training_data), chunk_size)]
+    # Setup similarity matrix
+    dist_values = [[0 for i in range(len(training_input_sets))] for j in range(len(training_input_sets))]
 
-        nets = []
-        for i in range(num_nets):
-            nets.append(trainSingleNet(split_training_data[i]))
+    # Iterate over pairs, not including i == j, and calculate Jaccard index
+    for i in range(len(training_input_sets)):
+        for j in range(len(training_input_sets)):
+            if i <= j:
+                continue
+            else:
+                # Cast to sets and find Jaccard values
+                datai = [x[0] for x in training_input_sets[i]]
+                dataj = [x[0] for x in training_input_sets[j]]
+                if len(datai) < len(dataj):
+                    datai = datai + ([0]*(len(dataj) - len(datai)))
+                elif len(datai) > len(dataj):
+                    dataj = dataj + ([0]*(len(datai) - len(dataj)))
 
-        testing_output = [round(sqrt(testing_data[i][0])) for i in range(len(testing_data))]
+                squares = [(datai[x] - dataj[x])**2 for x in range(len(datai))]
+                dist = sqrt(np.sum(squares))
+                dist_values[i][j] = dist
 
-        results = []
-        for i in range(iterations):
-            # Loop through iterations to average out single runs
-            predictions = []
-            iteration_results = []
-            for j in range(num_nets):
-                prediction = nets[j].predict(testing_data)
-                predictions.append(prediction)
-            # validation
-            # for loop through the indicies of one prediction vector
-            for j in range(len(predictions[0])):
-                # for each net
-                prediction_set = []
-                for k in range(len(predictions)):
-                    prediction_set.append(predictions[k][j])
-                if np.median(prediction_set) == testing_output[j]:
-                    iteration_results.append(1)
-                else:
-                    iteration_results.append(0)
-            results.append(np.average(iteration_results))
-        print(np.average(results))
+    # Calculate statistics
+    flattened_list = [entry for sublist in dist_values for entry in sublist]
+    overlap_mean = np.average(flattened_list)
+    overlap_variance = np.var(flattened_list)
+
+    return (overlap_mean, overlap_variance)
+
+def runSingle(training_input, training_output, testing_input, testing_output):
+
+    # Instantiate single net
+    single_net = MLPRegressor()
+
+    # Train single net
+    single_net.fit(training_input, training_output)
+
+    # Test single net
+    single_net_prediction = single_net.predict(testing_input)
+
+    # Check accuracy of single net through MSE calculation
+    single_net_MSE = float((np.sum([(single_net_prediction[i] - testing_output[i])**2 for i in range(len(testing_input))]))/len(testing_input))
+
+    return single_net_MSE
+
+def runMultiple(training_input_sets, training_output_sets, testing_input, testing_output):
+
+    # Instantiate multiple nets
+    multi_nets = [MLPRegressor() for i in range(len(training_input_sets))]
+
+    # Train nets
+    multi_nets = [multi_nets[i].fit(training_input_sets[i], training_output_sets[i]) for i in range(len(training_input_sets))]
+
+    # Test nets
+    multi_nets_predictions = [net.predict(testing_input) for net in multi_nets]
+
+    # Check accuracy of single net through MSE calculation
+    multi_nets_MSE = float(np.sum([(np.average([multi_nets_predictions[j][i] for j in range(len(multi_nets))]) - testing_output[i])**2 for i in range(len(testing_output))])/len(testing_input))
+
+    return multi_nets_MSE
+
+def run(size, breadth, num_nets):
+    # size indicates the number of data points to use in the experiment
+    # breadth indicates the range of values, from 0 to breadth
+    # num_nets indicates how many nets to include in the multiple net comparison
+
+    # Define the data sets
+    rand = np.random.uniform
+    training_input = [[rand(0.0, breadth)] for i in range(size)]
+    testing_input = [[rand(0.0, breadth)] for i in range(size)]
+
+    # Compute output, may switch between functions
+    # training_output = [sqrt(datum[0]) for datum in training_input]
+    # testing_output = [sqrt(datum[0]) for datum in testing_input]
+
+    training_output = [-sqrt(datum[0])+datum[0]**1.5 for datum in training_input]
+    testing_output = [-sqrt(datum[0])+datum[0]**1.5 for datum in testing_input]
+
+    # Using 2d polynomial with second variable
+    # mu, sigma = breadth/2, breadth/5
+    # sqrt_output_testing = [sqrt(datum[0]) for datum in testing_input]
+    # extra_set_testing = np.random.normal(mu, sigma, size)
+    # testing_output = [sqrt_output_testing[i]*extra_set_testing[i] for i in range(size)]
+    # sqrt_output_training = [sqrt(datum[0]) for datum in training_input]
+    # extra_set_training = np.random.normal(mu, sigma, size)
+    # training_output = [sqrt_output_training[i]*extra_set_training[i] for i in range(size)]
 
 
 
-def trainSingleNet(training_data):
-    # training_data is the raw list of randomly generated
+    # Define global data statistics
+    training_input_mean, testing_input_mean = np.average(training_input), np.average(testing_input)
+    training_input_variance, testing_input_variance = np.var(training_input), np.var(testing_input)
 
-    training_input = [[round(datum)] for datum in training_data]
-    training_output = [round(sqrt(datum[0])) for datum in training_input]
+    # Run a single net with all of the data
+    single_net_MSE = runSingle(training_input, training_output, testing_input, testing_output)
 
-    mlp = MLPC(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
-    mlp.fit(training_input, training_output);
+    # Run multiple nets with divided data sets
 
-    return mlp
+    # First divide data evenly
+    training_input_sets = list(split_data(training_input, size/num_nets))
+    training_output_sets = list(split_data(training_output, size/num_nets))
 
-def testSingleNet(testing_data, mlp):
+    # Define statistics of split data
+    training_input_sets_overlap_data = detectOverlap(training_input_sets)
 
-    test_input = [[round(datum)] for datum in testing_data]
-    test_output = [round(sqrt(datum[0])) for datum in test_input]
-    results = []
-    predictions = mlp.predict(test_input)
-    for i in range(len(predictions)):
-        if predictions[i] == test_output[i]:
-            results.append(1)
-        else:
-            results.append(0)
-    return np.average(results)
+    # Run multiple nets with split data
+    multi_net_MSE = runMultiple(training_input_sets, training_output_sets, testing_input, testing_output)
 
-def trainAndTestSingleNet(testing_data, training_data):
-    return testSingleNet(testing_data, trainSingleNet(training_data))
+    data_statistics = (training_input_mean, training_input_variance, testing_input_mean, testing_input_variance)
+    statistic_set = (data_statistics, training_input_sets_overlap_data)
 
-
-training_sizes = [10, 100, 1000]
-iterations = 10
-breadth = 100
-num_nets = 5
-
-experimentSingleNet(training_sizes, iterations, breadth)
-experimentMultipleNets(num_nets, training_sizes, iterations, breadth)
+    return (single_net_MSE, multi_net_MSE, statistic_set)
