@@ -45,7 +45,6 @@ def utility(bid, activation_threshold):
 
 def calc_optimal(group_size, var_A, var_B, cov_A, cov_B, cov_AB):
     tc = float(cov_A + cov_B - 2*cov_AB)
-    print(tc)
     term1 = float((var_B - var_A) - (cov_B - cov_A)) / float(2*group_size*tc)
     term2 = float(cov_B - cov_AB) / float(tc)
     return term1 + term2
@@ -57,7 +56,7 @@ type_populations = {
     "B":50
 }
 
-activation_threshold = 0
+activation_threshold = 0.6
 
 var_bounds = [0, 10]
 intra_cov_lb = []
@@ -65,27 +64,19 @@ inter_cov_lb = 0
 V = 0
 
 # Define variances, within-type covariance, across-type covariance
-variances = {}
-for key in type_populations.keys():
-    variances[key] = uniform(var_bounds[0], var_bounds[1])
+variances = {
+    "A":4,
+    "B":10
+}
 
-intra_covs = {}
-for key in type_populations.keys():
-    possible_value = uniform(intra_cov_lb, variances[key])
-    intra_covs[key + key] = possible_value
+intra_covs = {
+    "AA": 3,
+    "BB": 0.2
+}
 
-inter_covs = {}
-for key1 in type_populations.keys():
-    for key2 in type_populations.keys():
-        if key1 == key2:
-            continue
-        else:
-            key = ''.join(sorted(key1 + key2))
-            if key in inter_covs.keys():
-                continue
-            upper_bound = float(intra_covs[key1 + key1] + intra_covs[key2 + key2]) / float(2)
-            possible_value = uniform(inter_cov_lb, upper_bound)
-            inter_covs[key] = possible_value
+inter_covs = {
+    "AB": -2
+}
 
 # Define the covariance matrix
 num_agents = sum(type_populations.values())
@@ -117,6 +108,7 @@ draw = multi_norm(means, cov_mat)
 
 # Convert these to probabilities
 bids = []
+
 for i, bid in enumerate(draw):
     b = (i, transform_probability(bid, means[i], math.sqrt(variances[agents[i]])))
     bids.append(b)
@@ -135,6 +127,9 @@ pos_expected_payoffs = [payoff for payoff in expected_payoffs if payoff[1] > 0]
 count_A = 0
 count_B = 0
 proportion_A_random = [0]
+incentives_for_A = [0]
+incentives_for_A_against_B = [0]
+incentives_for_B = [0]
 while len(pos_expected_payoffs) > 0:
     rand_pick = int(round(uniform(0, len(pos_expected_payoffs) - 1)))
 
@@ -149,7 +144,9 @@ while len(pos_expected_payoffs) > 0:
     else:
         count_B += 1
     proportion_A_random.append(float(count_A)/float(count_A + count_B))
-
+    incentives_for_A.append(expected_error(count_A, count_B, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']) - expected_error(count_A + 1, count_B, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']))
+    incentives_for_A_against_B.append(expected_error(count_A, count_B + 1, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']) - expected_error(count_A + 1, count_B, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']))
+    incentives_for_B.append(expected_error(count_A, count_B, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']) - expected_error(count_A, count_B + 1, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']))
     realized_bids.append(picked_bids_list[0])
     realized_payoffs.append((picked_agent, picked_payoff))
     bids.remove(picked_bids_list[0])
@@ -161,12 +158,18 @@ while len(pos_expected_payoffs) > 0:
     pos_expected_payoffs = [payoff for payoff in expected_payoffs if payoff[1] > 0]
 
 proportion_A_optimal = [0]
-for i in range(len(agents)):
+for i in range(len(realized_bids)):
     group_size = 1 + i
-    proportion_A_optimal.append(calc_optimal(group_size, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']))
+    if group_size == 1:
+        if variances['A'] < variances['B']:
+            proportion_A_optimal.append(1)
+        else:
+            proportion_A_optimal.append(0)
+    else:
+        proportion_A_optimal.append(calc_optimal(group_size, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']))
 
-x = range(len(agents) + 1)
-plt.plot(x, proportion_A_random, 'r--', x, proportion_A_optimal, 'g^')
+x = range(len(realized_bids) + 1)
+plt.plot(x, proportion_A_random, 'r--', x, proportion_A_optimal, 'g^', x, incentives_for_A, 'b.', incentives_for_B, 'r.')
 plt.show()
 
 
