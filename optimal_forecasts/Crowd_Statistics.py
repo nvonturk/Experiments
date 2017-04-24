@@ -41,8 +41,7 @@ def utility(bid, activation_threshold, incentive, C):
     # Plug in different scoring rules
     payoff_1 = 2*bid - bid**2 - (1-bid)**2
     payoff_2 = 2*(1-bid) - bid**2 - (1-bid)**2
-
-    return bid*payoff_1 + (1-bid)*payoff_2 - activation_threshold + C*incentive
+    return (bid*payoff_1 + (1-bid)*payoff_2 - activation_threshold + C*incentive)
 
 def calc_optimal(group_size, var_A, var_B, cov_A, cov_B, cov_AB):
     tc = float(cov_A + cov_B - 2*cov_AB)
@@ -53,8 +52,8 @@ def calc_optimal(group_size, var_A, var_B, cov_A, cov_B, cov_AB):
 
 # Define types and their populations
 type_populations = {
-    "A":50,
-    "B":50
+    "A":100,
+    "B":100
 }
 
 activation_threshold = 0
@@ -138,7 +137,6 @@ proportion_A = [0]
 
 while len(pos_expected_payoffs) > 0:
     rand_pick = int(round(uniform(0, len(pos_expected_payoffs) - 1)))
-
     picked_tuple = pos_expected_payoffs[rand_pick]
 
     picked_agent        = picked_tuple[0]
@@ -154,24 +152,45 @@ while len(pos_expected_payoffs) > 0:
     proportion_A.append(float(count_A)/float(count_A + count_B))
 
     err_diff_for_A = expected_error(count_A, count_B, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']) - expected_error(count_A + 1, count_B, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB'])
-	# Max for a quadratic scoring rule is 1
 
     incentives_for_A.append(float(err_diff_for_A))
 
     err_diff_for_B = expected_error(count_A, count_B, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']) - expected_error(count_A, count_B + 1, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB'])
-
     incentives_for_B.append(float(err_diff_for_B))
-
     realized_bids.append(picked_bids_list[0])
     realized_payoffs.append((picked_agent, picked_payoff))
     bids.remove(picked_bids_list[0])
 
+    C = min(float(1)/float(abs(err_diff_for_A)), float(1)/float(abs(err_diff_for_B)))
+    favored = ''
+    if err_diff_for_A > err_diff_for_B:
+    	favored = 'A'
+    else:
+    	favored = 'B'
+    print("Favored", favored, "Incentive A", C*err_diff_for_A, "Incentive B", C*err_diff_for_B)
     expected_payoffs = []
     for bid in bids:
-        ep = (bid[0], utility(bid[1], activation_threshold, 0, 0))
+    	incentive_A = float(err_diff_for_A)
+        incentive_B = float(err_diff_for_B)
+        incentive = 0
+        if agents[bid[0]] == 'A':
+            incentive = incentive_A
+            # if err_diff_for_A > err_diff_for_B:
+            # 	C = float(1)/float(err_diff_for_A)
+            # else:
+            # 	C = abs(float(1)/float(err_diff_for_A))
+        else:
+            incentive = incentive_B
+            # if err_diff_for_B > err_diff_for_A:
+            # 	C = float(1)/float(err_diff_for_B)
+            # else:
+            # 	C = abs(float(1)/float(err_diff_for_B))
+        ep = (bid[0], utility(bid[1], activation_threshold, incentive, C))
+        # ep = (bid[0], utility(bid[1], activation_threshold, 0, 0))
         expected_payoffs.append(ep)
 
     pos_expected_payoffs = [payoff for payoff in expected_payoffs if payoff[1] > 0]
+    print(len(expected_payoffs) - len(pos_expected_payoffs))
 
 proportion_A_optimal = [0]
 for i in range(len(realized_bids)):
