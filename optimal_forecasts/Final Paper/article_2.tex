@@ -30,7 +30,7 @@
 
 \usepackage[english]{babel} % Language hyphenation and typographical rules
 
-\usepackage[hmarginratio=2:2,top=20mm,columnsep=15pt]{geometry} % Document margins
+\usepackage[lmargin=1in, rmargin=1in, hmarginratio=2:2,top=20mm,columnsep=15pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 
@@ -70,7 +70,7 @@
 \posttitle{\end{center}} % Article title closing formatting
 \title{Incentivizing Optimal Forecasting Groups in Prediction Markets} % Article title
 \author{%
-\textsc{Nicholas von Turkovich} % Your name
+\textsc{Nicholas von Turkovich} \\% Your name
 \normalsize Duke University \\ % Your institution
 \normalsize \href{mailto:nbv3@duke.edu}{nbv3@duke.edu} % Your email address
 %\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
@@ -98,31 +98,50 @@
 
 \section{Introduction}
 
-Wisdom of crowds describes a phenomenon in which a group of individuals perform a task or make a decision with an acumen greater than any single individual. Oftentimes, the disparity between a single individual performing a task and the collective is stark. Possibly the most quoted and most widely referenced single instance of wisdom of the crowds is attributed to Sir Francis Galton's observations of a crowd estimating the weight of an ox.\footnote{His original paper, \textit{Vox Populi}, was published in \textit{Nature} in March of 1907. doi:10.1038/075450a0}. He noted that the crowd's average prediction was within 1 percent of the oxen's true weight. Since then, wisdom of the crowds has garnered interest from various industries and academic fields as more individuals try to ascertain what makes a crowd intelligent and how crowd intelligence be utilized to perform tasks that would be difficult for any single individual. The most prevalent example of crowds being used to accomplish tasks comes in the form of markets, where groups of individuals contribute their private information and perspective for personal gain, and in so doing, help to attain an accurate estimation of a quantity. This quantity could be the value of a particular company's stock or the likelihood of some event happening in the future.
-
-A prediction market acts as a vehicle for obtaining likelihood estimates of a particular event or set of events occurring.\footnote{See \cite{1} for more details.} Participants in the market pay for a contract that is tied to a particular probability distribution over the set of events in question. The market determines both how to aggregate information elicited from market participants as well as how to reward individual contracts according to some payoff function. 
-
+Wisdom of crowds describes a phenomenon in which a group of individuals perform a task or make a decision with an acumen greater than any single individual. Oftentimes, the disparity between a single individual performing a task and the collective is stark. Possibly the most quoted and most widely referenced single instance of wisdom of the crowds is attributed to Sir Francis Galton's observations of a crowd estimating the weight of an ox.\footnote{His original paper, \textit{Vox Populi}, was published in \textit{Nature} in March of 1907. doi:10.1038/075450a0}. He noted that the crowd's average prediction was within 1 percent of the oxen's true weight. Since then, wisdom of the crowds has garnered interest from various industries and academic fields as more individuals try to ascertain what makes a crowd intelligent and how crowd intelligence be utilized to perform tasks that would be difficult for any single individual. The most prevalent example of crowds being used to accomplish tasks comes in the form of markets, where groups of individuals contribute their private information and perspective for personal gain, and in so doing, help to attain an accurate estimation of a quantity. This quantity could be the value of a particular company's stock or the likelihood of some event happening in the future.\\
+\newline
+A prediction market acts as a vehicle for obtaining likelihood estimates of a particular event or set of events occurring.\footnote{See \cite{1} for more details.} Participants in the market pay for a contract that is tied to a particular probability distribution over the set of events in question. The market determines both how to aggregate information elicited from market participants as well as how to reward individual contracts according to some payoff function. There is strong evidence backing up the accuracy of different prediction markets \cite{2}.\\
+\newline
+There is also substantial research focused on crowd dynamics and what characteristics make for an optimal crowd in a setting where the objective is to estimate a given quantity \cite{3}. The purpose of this paper is to determine whether or not we can build a prediction market that changes its incentive scheme to ensure that the participating population closely matches the optimal composition given the pool of potential participants. We will first provide a brief background on scoring rules for prediction markets. Then, we will take a more in-depth look at some current literature regarding composition of forecasting groups \cite{3}. This background will allow us to frame the motivating question for this research. After proposing the incentive structure that is meant to ensure optimal group composition, we will then evaluate the benefits and shortcomings of the scheme and suggest both improvements and directions for future work.
 
 %------------------------------------------------
 
 \section{Background}
 
-Maecenas sed ultricies felis. Sed imperdiet dictum arcu a egestas. 
-\begin{itemize}
-\item Donec dolor arcu, rutrum id molestie in, viverra sed diam
-\item Curabitur feugiat
-\item turpis sed auctor facilisis
-\item arcu eros accumsan lorem, at posuere mi diam sit amet tortor
-\item Fusce fermentum, mi sit amet euismod rutrum
-\item sem lorem molestie diam, iaculis aliquet sapien tortor non nisi
-\item Pellentesque bibendum pretium aliquet
-\end{itemize}
-\blindtext % Dummy text
+\subsection{Scoring Rules}
 
-Text requiring further explanation\footnote{Example footnote}.
+In a prediction market setting, participants are asked to report a vector of probabilities denoting the likelihoods of different events occurring. The reward for a particular vector of probabilities is a function of the vector and the set of events that eventually occurred. This function is known as a scoring rule and is typically denoted as:
+
+\begin{equation}
+\label{scoringrule}
+S(\vec{p}, \omega)
+\end{equation}
+
+where $\vec{p}$ is the vector of probabilities bid by the market participant and $\omega$ is the actual event that occurred. Note that in predicting a single event, the vector $\vec{p}$ has length 1.\\
+\newline
+There are certain properties of scoring rules that elicit different behavior from rational agents. A scoring rule is called proper if the agent cannot improve their expected payoff by misreporting their belief or what they believe to be the true probabilities over events. A scoring rule
+is strictly proper if the set of probability vectors that maximize an agent's expected value has a cardinality of 1, where the single element of the set is their true belief. Therefore, for both types of scoring rules, there is no incentive to report some $\hat{p} \neq \vec{p}$ and for a strictly proper scoring rule, the agent can maximize their expected payment only by reporting $\vec{p}$.\\
+\newline
+The expected value of an agent predicting a the probability of an event is given by:
+
+\begin{equation}
+\label{gfunction}
+G(\vec{p}) = pS(p,1) + (1-p)S(p,0)
+\end{equation}
+
+We know that for a (strictly) proper scoring rule, the function $G(\vec{p})$ is (strictly) convex. Gneiting and Raftery \cite{4} generalize the conditions that must be satisfied by the function $G(\vec{p})$ in order for a scoring rule to be proper or strictly proper.
+
+\subsection{Optimal Forecasting Groups}
+
+The following model and results stem from the work by Lamberson and Page \cite{3} as they characterized what makes an optimal forecasting group under their assumptions.\\
+\newline
+
+
 
 %------------------------------------------------
 
+
+%------------------------------------------------
 \section{Results}
 
 \begin{table}
@@ -139,17 +158,6 @@ Richard & Miles & $2$ \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-\blindtext % Dummy text
-
-\begin{equation}
-\label{eq:emc}
-e = mc^2
-\end{equation}
-
-\blindtext % Dummy text
-
-%------------------------------------------------
 
 \section{Discussion}
 
@@ -171,11 +179,17 @@ A statement requiring citation \cite{Figueredo:2009dg}.
 \bibitem [1]{1}
 J. Wolfers and E. Zitzewitz. Prediction markets. \textit{The Journal of Economic Perspectives},
 18(2):107-126, 2004.
-\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
-Figueredo, A.~J. and Wolf, P. S.~A. (2009).
-\newblock Assortative pairing and life history strategy - a cross-cultural
-  study.
-\newblock {\em Human Nature}, 20:317--330.
+\bibitem [2]{2}
+ Joyce Berg, Robert Forsythe, Forrest Nelson, and Thomas Rietz. \textit{Results from
+a Dozen Years of Election Futures Markets Research}, volume 1 of \textit{Handbook of
+Experimental Economics Results}, chapter 80, pages 742-751. Elsevier, 2008.
+\bibitem [3]{3}
+P. J. Lamberson, Scott E. Page, (2012) \textit{Optimal Forecasting Groups}. \textit{Management Science} 58(4):805-810
+\bibitem [4]{4}
+Tilmann Gneiting and Adrian E. Raftery. Strictly proper scoring rules, prediction,
+and estimation. \textit{Journal of the American Statistical Association}, 102(477):359-378,
+March 2007.
+
  
 \end{thebibliography}
 

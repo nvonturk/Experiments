@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  25 APR 2017 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  25 APR 2017 19:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -395,14 +395,14 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * hratio: 2:2
 * modes: twoside 
-* h-part:(L,W,R)=(92.14517pt, 430.00462pt, 92.1452pt)
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
 * v-part:(T,H,B)=(56.9055pt, 642.66711pt, 95.39737pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=430.00462pt
+* \textwidth=469.75502pt
 * \textheight=642.66711pt
-* \oddsidemargin=19.87518pt
-* \evensidemargin=19.87521pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -483,74 +483,115 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <10> not available
 (Font)              Font shape `T1/pplx/b/n' tried instead on input line 94.
-LaTeX Font Info:    Try loading font information for OMS+pplx on input line 112
-.
-LaTeX Font Info:    No file OMSpplx.fd. on input line 112.
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--106
+
+ []
 
 
-LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 112.
+Underfull \hbox (badness 1057) in paragraph at lines 101--106
+\T1/pplx/m/n/10 (+20) prob-a-bil-ity dis-tri-bu-tion over the set of events
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 101--106
+\T1/pplx/m/n/10 (+20) to ag-gre-gate in-for-ma-tion elicited from mar-ket
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--106
+
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 101--106
+\T1/pplx/m/n/10 (+20) There is also sub-stan-tial re-search fo-cused on
+ []
 
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 120--126
+
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 120--126
+\T1/pplx/m/n/10 (+20) There are cer-tain prop-er-ties of scor-ing rules
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--126
+
+ []
+
+
+Underfull \hbox (badness 1308) in paragraph at lines 120--126
+\T1/pplx/m/n/10 (+20) The ex-pected value of an agent pre-dict-ing a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--138
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--138
+
+ []
+
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <9> not available
-(Font)              Font shape `T1/pplx/b/n' tried instead on input line 129.
+(Font)              Font shape `T1/pplx/b/n' tried instead on input line 148.
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--160
-\T1/pplx/m/n/10 (+20) A state-ment re-quir-ing ci-ta-tion
- []
-
-
-Underfull \hbox (badness 2103) in paragraph at lines 158--160
-\T1/pplx/m/n/10 (+20) [[]]. Lorem ip-sum
- []
+LaTeX Warning: Citation `Figueredo:2009dg' on page 2 undefined on input line 16
+6.
 
 
-Underfull \vbox (badness 2181) has occurred while \output is active []
+Underfull \vbox (badness 6691) has occurred while \output is active []
 
  [2]
-Underfull \hbox (badness 3364) in paragraph at lines 175--179
-[]\T1/pplx/m/n/10 (+20) Figueredo, A. J.
+Underfull \hbox (badness 1755) in paragraph at lines 189--192
+[]\T1/pplx/m/n/10 (+20) Tilmann Gneit-ing and Adrian E. Raftery.
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 184.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
 [3
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 184.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
  (./article_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 184.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 184.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
 Package rerunfilecheck Info: File `article_2.out' has not changed.
-(rerunfilecheck)             Checksum: 8BCFB960CFEA6B563E0C29C187A2F8B8;305.
+(rerunfilecheck)             Checksum: 960502575BC6F9DF0BC2BF71AA9C0508;442.
 
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 184.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
  ) 
 Here is how much of TeX's memory you used:
- 9214 strings out of 493089
- 143268 string characters out of 6134842
- 268933 words of memory out of 5000000
- 12373 multiletter control sequences out of 15000+600000
- 64529 words of font info for 217 fonts, out of 8000000 for 9000
+ 9231 strings out of 493089
+ 143328 string characters out of 6134842
+ 270004 words of memory out of 5000000
+ 12365 multiletter control sequences out of 15000+600000
+ 65861 words of font info for 236 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,10n,43p,1382b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,10n,43p,1384b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fo
-nts/type1/urw/palatino/uplri8a.pfb>
-Output written on article_2.pdf (3 pages, 81866 bytes).
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/urw/palatino/uplri8a.pfb>
+Output written on article_2.pdf (3 pages, 99239 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 62513 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
+ 62529 words of extra memory for PDF output out of 74296 (max. 10000000)
 
