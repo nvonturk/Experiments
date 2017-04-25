@@ -64,17 +64,17 @@ V = 0
 
 # Define variances, within-type covariance, across-type covariance
 variances = {
-    "A":0.1,
-    "B":0.2
+    "A":5,
+    "B":10
 }
 
 intra_covs = {
-    "AA": 0.6,
+    "AA": 2,
     "BB": 1
 }
 
 inter_covs = {
-    "AB": -0.5
+    "AB": -2
 }
 
 # Define the covariance matrix
@@ -104,7 +104,7 @@ for i in range(num_agents):
             cov_mat[j][i] = inter_covs[''.join(sorted(agent1 + agent2))]
 
 cov_mat = np.dot(np.matrix(cov_mat), np.matrix(cov_mat).T)
-# print(cov_mat)
+print(cov_mat)
 means = [V for i in range(num_agents)]
 
 draw = multi_norm(means, cov_mat)
@@ -200,7 +200,7 @@ while len(pos_expected_payoffs) > 0:
     realized_draws.append(draw[picked_bids_list[0][0]])
 
     # print(np.mean(realized_bids))
-    group_error.append((sum(realized_draws)/len(realized_draws))**2)
+    group_error.append((sum(realized_bids)/len(realized_bids) - 0.5)**2)
     expected_group_error.append(expected_error(count_A, count_B, variances['A'], variances['B'], intra_covs['AA'], intra_covs['BB'], inter_covs['AB']))
 
 
@@ -227,8 +227,8 @@ while len(pos_expected_payoffs) > 0:
             # 	C = float(1)/float(err_diff_for_B)
             # else:
             # 	C = abs(float(1)/float(err_diff_for_B))
-        ep = (bid[0], utility(bid[1], activation_threshold, incentive, C))
-        # ep = (bid[0], utility(bid[1], activation_threshold, 0, 0))
+        # ep = (bid[0], utility(bid[1], activation_threshold, incentive, C))
+        ep = (bid[0], utility(bid[1], activation_threshold, 0, 0))
         expected_payoffs.append(ep)
 
     pos_expected_payoffs = [payoff for payoff in expected_payoffs if payoff[1] > 0]
@@ -250,10 +250,12 @@ line1, = plt.plot(x, proportion_A, 'r--', label="Actual Proportion of A")
 line2, = plt.plot(x, proportion_A_optimal, 'g^', label="Optimal Proportion of A")
 # line3, = plt.plot(x, incentives_for_A, 'r.', label="Improvement in Error with Extra A")
 # line4, = plt.plot(x, incentives_for_B, 'b.', label="Improvement in Error with Extra B")
-line6, = plt.plot(x, expected_group_error, 'r.', label="Expected Group Error")
+# line6, = plt.plot(x, expected_group_error, 'r.', label="Expected Group Error")
 line5, = plt.plot(x, group_error, 'g.', label='Group Error')
-plt.legend(handles=[line1, line2, line6, line5])
+plt.legend(handles=[line1, line2, line5])
 plt.show()
+
+# print(realized_bids)
 
 # plt.figure(2)
 # plt.hist(realized_draws, bins='auto')

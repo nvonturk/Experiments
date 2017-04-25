@@ -30,7 +30,7 @@
 
 \usepackage[english]{babel} % Language hyphenation and typographical rules
 
-\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hmarginratio=2:2,top=20mm,columnsep=15pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 
@@ -53,7 +53,7 @@
 \pagestyle{fancy} % All pages have headers and footers
 \fancyhead{} % Blank out the default header
 \fancyfoot{} % Blank out the default footer
-\fancyhead[C]{Running title $\bullet$ May 2016 $\bullet$ Vol. XXI, No. 1} % Custom header text
+\fancyhead[C]{Incentivizing Optimal Forecasting Groups in Prediction Markets $\bullet$ April 2017} % Custom header text
 \fancyfoot[RO,LE]{\thepage} % Custom footer text
 
 \usepackage{titling} % Customizing the title section
@@ -68,11 +68,11 @@
 
 \pretitle{\begin{center}\Huge\bfseries} % Article title formatting
 \posttitle{\end{center}} % Article title closing formatting
-\title{Article Title} % Article title
+\title{Incentivizing Optimal Forecasting Groups in Prediction Markets} % Article title
 \author{%
-\textsc{John Smith}\thanks{A thank you or further information} \\[1ex] % Your name
-\normalsize University of California \\ % Your institution
-\normalsize \href{mailto:john@smith.com}{john@smith.com} % Your email address
+\textsc{Nicholas von Turkovich} % Your name
+\normalsize Duke University \\ % Your institution
+\normalsize \href{mailto:nbv3@duke.edu}{nbv3@duke.edu} % Your email address
 %\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
 %\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
 %\normalsize University of Utah \\ % Second author's institution
@@ -81,7 +81,7 @@
 \date{\today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
-\noindent \blindtext % Dummy abstract text - replace \blindtext with your abstract text
+\noindent   % Dummy abstract text - replace \blindtext with your abstract text
 \end{abstract}
 }
 
@@ -98,14 +98,14 @@
 
 \section{Introduction}
 
-\lettrine[nindent=0em,lines=3]{L} orem ipsum dolor sit amet, consectetur adipiscing elit.
-\blindtext % Dummy text
+Wisdom of crowds describes a phenomenon in which a group of individuals perform a task or make a decision with an acumen greater than any single individual. Oftentimes, the disparity between a single individual performing a task and the collective is stark. Possibly the most quoted and most widely referenced single instance of wisdom of the crowds is attributed to Sir Francis Galton's observations of a crowd estimating the weight of an ox.\footnote{His original paper, \textit{Vox Populi}, was published in \textit{Nature} in March of 1907. doi:10.1038/075450a0}. He noted that the crowd's average prediction was within 1 percent of the oxen's true weight. Since then, wisdom of the crowds has garnered interest from various industries and academic fields as more individuals try to ascertain what makes a crowd intelligent and how crowd intelligence be utilized to perform tasks that would be difficult for any single individual. The most prevalent example of crowds being used to accomplish tasks comes in the form of markets, where groups of individuals contribute their private information and perspective for personal gain, and in so doing, help to attain an accurate estimation of a quantity. This quantity could be the value of a particular company's stock or the likelihood of some event happening in the future.
 
-\blindtext % Dummy text
+A prediction market acts as a vehicle for obtaining likelihood estimates of a particular event or set of events occurring.\footnote{See \cite{1} for more details.} Participants in the market pay for a contract that is tied to a particular probability distribution over the set of events in question. The market determines both how to aggregate information elicited from market participants as well as how to reward individual contracts according to some payoff function. 
+
 
 %------------------------------------------------
 
-\section{Methods}
+\section{Background}
 
 Maecenas sed ultricies felis. Sed imperdiet dictum arcu a egestas. 
 \begin{itemize}
@@ -168,6 +168,9 @@ A statement requiring citation \cite{Figueredo:2009dg}.
 
 \begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
 
+\bibitem [1]{1}
+J. Wolfers and E. Zitzewitz. Prediction markets. \textit{The Journal of Economic Perspectives},
+18(2):107-126, 2004.
 \bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
 Figueredo, A.~J. and Wolf, P. S.~A. (2009).
 \newblock Assortative pairing and life history strategy - a cross-cultural
