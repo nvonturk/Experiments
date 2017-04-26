@@ -381,9 +381,9 @@ The introduction of an adjustable $C$ term and incentive for truthful reporting 
 \caption{Market Simulation with Relaxed C: A=200, B=100}
 \end{figure}
 
-Here, the incentive scheme adapts to ensure that the market doesn't simply stop when the current proportions for the participating pool are very close or equal to the optimal proportions. One can see from the second subplot that the incentives for type $a$ and type $b$ oscillate as more individuals are incorporated into the pool.\\
+Here, the incentive scheme adapts to ensure that the market doesn't simply stop when the current proportions for the participating pool are very close or equal to the optimal proportions. One can see from the second subplot that the incentives for type $a$ and type $b$ oscillate as more individuals are incorporated into the pool.
 
-Another interesting thing to note about the two subplots is how they change when the participating group size gets to be around 180. We see a large spike in the incentive for a type $b$ to participate as well as the proportion of the group that is of type $a$ to increase with respect to the optimal proportion. At this point, the available type $b$ agents have all participated.\\
+Another interesting thing to note about the two subplots is how they change when the participating group size gets to be around 180. We see a large spike in the incentive for a type $b$ to participate as well as the proportion of the group that is of type $a$ to increase with respect to the optimal proportion. At this point, the available type $b$ agents have all participated.
 
 The value of this scheme is that at any point during market operation, the market is optimally incentivizing agents that will improve the group error in expectation. With respect to accuracy, below is a graph illustrating the average prediction error of the relaxed incentive scheme versus the average error of a market without any incentive scheme.
 
@@ -395,48 +395,14 @@ The value of this scheme is that at any point during market operation, the marke
 
 We can see that the incentive scheme helps to keep the true error low throughout the progression of bidding in the market. Notice as well that the average error for the incentive scheme begins to rise at a crowd size of ~240 individuals. This sudden shift corresponds to the incentive scheme running out of bidders of the preferred type and allowing the other type to bid as well. How to detect when the market has exhausted a particular type in the available pool of participants will be discussed as a topic of future work.
 
+\subsubsection{Comparison to a Market Scoring Rule}
+
+Originally, one goal was to compare the scheme proposed in this paper with the well-known market scoring rule \cite{5} in order to compare the accuracy of one to another in determining the aggregate prediction for the likelihood of an event happening. However, there are some structural differences between the two setups that makes making a fair comparison difficult. Most notably, 
+
+\section{Discussion and Future Work}
 
 
 
-
-
-
-
-
-
-%------------------------------------------------
-
-
-%------------------------------------------------
-\section{Results}
-
-
-
-\section{Discussion}
-
-\subsection{Subsection One}
-
-A statement requiring citation \cite{Figueredo:2009dg}.
-\blindtext % Dummy text
-
-\subsection{Subsection Two}
-
-\blindtext % Dummy text
-
-\begin{table}
-\caption{Example table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
@@ -457,6 +423,8 @@ P. J. Lamberson, Scott E. Page, (2012) \textit{Optimal Forecasting Groups}. \tex
 Tilmann Gneiting and Adrian E. Raftery. Strictly proper scoring rules, prediction,
 and estimation. \textit{Journal of the American Statistical Association}, 102(477):359-378,
 March 2007.
+\bibitem [5]{5}
+Hanson, Robin. \textit{Combinatorial information market design.} \textit{Information Systems Frontiers} 5.1 (2003): 107-119.
 
  
 \end{thebibliography}
