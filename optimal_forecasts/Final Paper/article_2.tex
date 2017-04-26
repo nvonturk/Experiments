@@ -29,8 +29,8 @@
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
 \usepackage[english]{babel} % Language hyphenation and typographical rules
-
-\usepackage[lmargin=1in, rmargin=1in, hmarginratio=2:2,top=20mm,columnsep=15pt]{geometry} % Document margins
+\usepackage{graphicx}
+\usepackage[lmargin=0.8in, rmargin=0.8in, hmarginratio=2:2,top=20mm,columnsep=15pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 
@@ -133,8 +133,91 @@ We know that for a (strictly) proper scoring rule, the function $G(\vec{p})$ is 
 
 \subsection{Optimal Forecasting Groups}
 
-The following model and results stem from the work by Lamberson and Page \cite{3} as they characterized what makes an optimal forecasting group under their assumptions.\\
+The following model and results stem from the work by Lamberson and Page (LP) \cite{3} as they characterized what makes an optimal forecasting group under their assumptions. This section summarizes the details of their model and results that are relevant to the work in this paper.\\
 \newline
+\subsubsection{Basic Framework}
+In the model, agents have a goal of estimating some quantity $V$. Each of the $M$ agents is characterized by a random variable $s_i$, which is their prediction of the quantity $V$. The random variable $\epsilon_i = s_i - V$ is the error in prediction for the $i_{th}$ agent. The aggregate estimate of the crowd of agents is $G(\vec{s}) = \frac1M \sum_i s_i$. In \cite{3}, LP focuses solely on the simple average as a way of aggregating individual estimates. Finally, the metric for accuracy in LP is group squared error, $(G(\vec{s}) - V)^2)$. LP then uses the \textit{bias-variance-covariance} decomposition to expand the expected value of the group squared error:
+
+\begin{equation}
+\label{bvcdecomp}
+E[(G(\vec{s}) - V)^2] = \overline{bias}(\vec{s})^2 + \frac1M\overline{var}(\vec{s}) + (1 - \frac1M)\overline{cov}(\vec{s})
+\end{equation}
+
+where the average bias of signals is given by:
+
+\begin{equation}
+\label{bias}
+\overline{bias}(\vec{s}) = \frac1M \sum_{i = 1}^M (E[\epsilon_{s_i}])
+\end{equation}
+
+the average error variance is given by:
+
+\begin{equation}
+\label{var}
+\overline{var}(\vec{s}) = \frac1M \sum_{i = 1}^M var[\epsilon_{s_i}]
+\end{equation}
+
+and the average error covariance is given by:
+
+\begin{equation}
+\label{cov}
+\overline{cov}(\vec{s}) = \frac{1}{M(M-1)} \sum_{i = 1}^M \sum_{j \neq i}cov(\epsilon_{s_i}, \epsilon_{s_j})
+\end{equation}
+
+\subsubsection{Group Composition}
+
+Now, let there be two types of forecasters in the crowd characterized by prediction random variables $a$ and $b$. Furthermore, LP assumes the agents to be unbiased such that:
+
+\begin{equation}
+\label{unbiaseda}
+E[\epsilon_a] = 0 \rightarrow E[\epsilon_a^2] = var(\epsilon_a) - (E[\epsilon_a])^2 = var(\epsilon_a)
+\end{equation}
+
+\begin{equation}
+\label{unbiasedb}
+E[\epsilon_b] = 0 \rightarrow E[\epsilon_b^2] = var(\epsilon_b) - (E[\epsilon_b])^2 = var(\epsilon_b)
+\end{equation}\\
+
+LP goes on to define $cov(\epsilon_a)$ as the covariance in prediction errors between two individual agents of type $a$ (i.e. intra-group covariance). Likewise, $cov(\epsilon_b)$ denotes the covariance in prediction errors between two agents of type $b$. Finally, $cov(\epsilon_a, \epsilon_b)$ (inter-group covariance) is the covariance in prediction errors between the two types. In this setting, covariance indicates how similarly prediction errors for agents will vary together. For example, errors in prediction may covary if the agents draw upon similar resources or information in making their prediction or if they have similar perspectives on the problem. The final relevant assumption that LP makes is the enforcement of a condition, \textit{type coherence}.\\
+
+\textit{Type coherence} is satisfied if the quantity:
+
+\begin{equation}
+\label{typeco}
+TC(a,b) = cov(\epsilon_a) + cov(\epsilon_b) - 2cov(\epsilon_a, \epsilon_b)
+\end{equation}\\
+
+is strictly positive: $TC(a,b) > 0$. This assumption is fairly reasonable as it states for the results of their analysis to hold, the types' errors must covary more within the two groups than they do between the two groups. In other words, the errors in prediction amongst members of groups should be more related than the errors across groups.
+
+\subsubsection{Relevant Results from LP}
+
+From equation \ref{bvcdecomp}, LP gives the following for the expected squared error in average prediction for a group with types $a$ and $b$:\\
+
+\resizebox{0.48 \textwidth}{!}{
+$
+E[(G(s) - V)^2] = \frac{Avar(\epsilon_a) + Bvar(\epsilon_b) + 2{{A}\choose{2}}cov(\epsilon_a) + 2{{B}\choose{2}}cov(\epsilon_b) + 2ABcov(\epsilon_a, \epsilon_b)}{M^2}
+$
+}\\
+
+
+where $M = A + B$. Here $A$ indicates the quantity of type $a$ in the crowd and $B$ indicates the quantity of type $b$ in the crowd. Recall that the agents are still assumed to be unbiased.\\
+\newline
+LP then treats the above equation as a function of $A$ and finds that the expected group error is minimized when the proportion of type $a$ agents in the crowd is:\\
+
+\resizebox{0.48 \textwidth}{!}{
+$
+\frac{A}{M} = \frac{[var(\epsilon_b) - var(\epsilon_a)] - [cov(\epsilon_b) - cov(\epsilon_a)]}{2M \cdot TC(a,b)}+\frac{cov(\epsilon_b) - cov(\epsilon_a,\epsilon_b)}{TC(a,b)}
+$
+}\\
+
+From this equation, we can see that as $M \rightarrow \infty$, the optimal fraction of type $a$ individuals approaches $\frac{cov(\epsilon_b) - cov(\epsilon_a,\epsilon_b)}{TC(a,b)}$. This second equation shows that the proportion of $a$ type should increase as the variance (i.e. inaccuracy) of type $a$ errors decreases with respect to the variance of type $b$ errors. Furthermore, when we take the limit as $M \rightarrow \infty$, accuracy becomes less of a determining factor in the proportions of the two types. As the intra-group covariance of one group increases (the errors of that group covary more), the proportion of the opposing group needed to minimize the expected group error increases. Hence, when as the group gets larger, it favors the type with more internal disagreement in prediction errors.\\
+\newline
+This concludes the summary of the results of LP, which serve as a stepping stone for the continued work proposed in this paper.
+
+\section{Incentive Scheme for Maintaining Optimal Group Composition}
+
+
+
 
 
 
@@ -143,6 +226,19 @@ The following model and results stem from the work by Lamberson and Page \cite{3
 
 %------------------------------------------------
 \section{Results}
+
+
+
+\section{Discussion}
+
+\subsection{Subsection One}
+
+A statement requiring citation \cite{Figueredo:2009dg}.
+\blindtext % Dummy text
+
+\subsection{Subsection Two}
+
+\blindtext % Dummy text
 
 \begin{table}
 \caption{Example table}
@@ -158,17 +254,6 @@ Richard & Miles & $2$ \\
 \bottomrule
 \end{tabular}
 \end{table}
-
-\section{Discussion}
-
-\subsection{Subsection One}
-
-A statement requiring citation \cite{Figueredo:2009dg}.
-\blindtext % Dummy text
-
-\subsection{Subsection Two}
-
-\blindtext % Dummy text
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
