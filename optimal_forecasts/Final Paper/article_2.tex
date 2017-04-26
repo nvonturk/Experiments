@@ -216,6 +216,88 @@ This concludes the summary of the results of LP, which serve as a stepping stone
 
 \section{Incentive Scheme for Maintaining Optimal Group Composition}
 
+The insights from LP \cite{3} regarding optimal composition of forecasting groups can be extended in a number of different ways. In the context of prediction markets though, we can try to use this knowledge to encourage types that would contribute favorably to the group's average error and discourage the type that would contribute unfavorable to the group's average error. Using additional incentives or disincentives in addition to the use of proper scoring rules, we can encourage agents to participate in the market if they valuable information regarding the event being predicted and if they are of a type that would improve the group's error in expectation.\\
+
+We assume that the agents know their type and are aware of the current group composition.
+
+\subsection{Strict Incentive Scheme}
+
+Ideally, the following should hold in the incentive scheme for an individual deciding whether or not to participate in the prediction market. Here $\pi$ denotes the utility or expected reward for participation.
+
+\begin{equation}
+\label{proportionalpredict}
+\pi \propto accuracy \ of \ prediction
+\end{equation}
+
+\begin{equation}
+\label{proportionaltype}
+\pi \propto value \ of \ type \ to \ group
+\end{equation}\\
+
+For brevity, let the expected squared error of the group prediction from \cite{3}, $E[(G(\vec{s}) - V)^2]$, be denoted as $GE(A,B)$. In a traditional prediction market setting, where types do not influence the incentives for participation, the expected utility, $\pi$ would simply be:
+
+\begin{equation}
+\label{piorig}
+\pi(\vec{p}) = G(\vec{p})
+\end{equation}\\
+
+where $G(\vec{p})$ is the expected reward for reporting $\vec{p}$. Now, to incentivize types from participating or refraining to participate, the following is the utility function with the addition of another term.
+
+\begin{equation}
+\label{strictutil1}
+\pi(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A+1,B)] \ if \ \theta=a
+\end{equation}\\
+
+\begin{equation}
+\label{strictutil2}
+\pi(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A,B+1)] \ if \ \theta=b
+\end{equation}\\
+
+where $C$ is a constant chosen by the market organizer and $GE(A,B)$ denotes the current proportions of agents in the crowd. Without asking for an individual to report their type, $C$ must be chosen in such a way that the type that is less favored or will produce more error in the group estimation of the probability is completely disincentivized from participating. This means that for the unfavored type, $C[GE(A,B) - GE(A+1,B)] \leq -|\max_{\vec{p}}G(\vec{p})|$. This would ensure that for the highest possible $G(\vec{p})$ value for the unwanted type, that type would have no incentive to bid.\\
+
+Both $GE(A,B) - GE(A+1,B)$ and $GE(A,B) - GE(A,B+1)$ can take on positive or negative values. \\
+
+\textit{Case 1}: $GE(A,B) - GE(A+1,B) < 0$, $GE(A,B) - GE(A,B+1) < 0$\\
+
+In this situation, the addition of a single agent of either type will be detrimental for the group error in expectation. This could happen in a situation where the current proportions are close to optimal for some crowd size $M$. However, as the market organizer, we don't necessarily want to halt all participation. Recall the first result from LP. The expected square error is inversely proportional to $M^2$. Therefore, as the crowd gets larger, overall error shrinks. Therefore, $C$ should be picked such that the agent that would contribute the least to the expected error is included:\\
+
+\resizebox{0.48 \textwidth}{!}{
+$
+C = \min\{{\frac{1}{|GE(A,B) - GE(A+1,B)|}, \frac{1}{|GE(A,B) - GE(A,B+1)|}}\}
+$
+}\\
+
+\textit{Case 2}: $GE(A,B) - GE(A+1,B)>0$, $GE(A,B) - GE(A,B+1)<0$\\
+
+Here, type $a$ is clearly favored since the inclusion of a type $a$ is the only option that will lead to a reduced expected error. \\
+
+\resizebox{0.25 \textwidth}{!}{
+$
+C = \frac{1}{|GE(A,B) - GE(A,B+1)|}
+$
+}\\
+
+\textit{Case 3}: $GE(A,B) - GE(A+1,B)<0$, $GE(A,B) - GE(A,B+1)>0$\\
+
+This case is symmetric to Case 2.\\
+
+\resizebox{0.25 \textwidth}{!}{
+$
+C = \frac{1}{|GE(A,B) - GE(A+1,B)|}
+$
+}\\
+
+\textit{Case 4}: $GE(A,B) - GE(A+1,B)>0$, $GE(A,B) - GE(A,B+1)>0$\\
+
+Here, the introduction of either type will lead to an improvement in expected group accuracy. However, since the market organizer is not soliciting agent types, they must create a disincentive such that only one type can rationally bid. That way they can be sure of the population sizes $A,B$. Ideally, the agent type with the greatest contribution to the group accuracy would be the type that is not totally disincentivized from participating. However, since the $C$ value must necessarily be negative, the type that would reduce the expected error of the group the most will always have a stronger disincentive than the opposing type. Since we would like at least one type to participate, the value for $C$ is given by the following:\\
+
+\resizebox{0.48 \textwidth}{!}{
+$
+C = - \min\{{\frac{1}{|GE(A,B) - GE(A+1,B)|}, \frac{1}{|GE(A,B) - GE(A,B+1)|}}\}
+$
+}\\
+
+
 
 
 
