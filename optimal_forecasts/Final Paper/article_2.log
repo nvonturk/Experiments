@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2017 18:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2017 18:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -668,107 +668,102 @@ Underfull \hbox (badness 2460) in paragraph at lines 122--128
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 138--140
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--140
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 202.
+(amsmath)                 on input line 201.
 
 
-Overfull \hbox (6.94934pt too wide) in paragraph at lines 198--203
+Overfull \hbox (6.94934pt too wide) in paragraph at lines 197--202
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--203
+Underfull \hbox (badness 10000) in paragraph at lines 197--202
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--208
+Underfull \hbox (badness 10000) in paragraph at lines 204--207
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--208
+Underfull \hbox (badness 10000) in paragraph at lines 204--207
 
  []
 
 
-Overfull \hbox (6.94814pt too wide) in paragraph at lines 209--214
+Overfull \hbox (6.94814pt too wide) in paragraph at lines 208--213
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--214
+Underfull \hbox (badness 10000) in paragraph at lines 208--213
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--218
+Underfull \hbox (badness 10000) in paragraph at lines 214--217
 
  []
 
 
-Underfull \hbox (badness 1796) in paragraph at lines 215--218
+Underfull \hbox (badness 1796) in paragraph at lines 214--217
 \T1/pplx/m/n/10 (+20) This con-cludes the sum-mary of the re-sults of LP,
  []
 
 
-Underfull \hbox (badness 1648) in paragraph at lines 221--222
+Underfull \hbox (badness 1648) in paragraph at lines 220--221
 \T1/pplx/m/n/10 (+20) av-er-age er-ror and dis-cour-age the type that would
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
 
  []
 
 [3]
-Underfull \hbox (badness 8151) in paragraph at lines 260--261
+Underfull \hbox (badness 8151) in paragraph at lines 259--260
 []\T1/pplx/m/n/10 (+20) Both $\OML/zplm/m/it/10 GE\OT1/zplm/m/n/10 (\OML/zplm/m
 /it/10 A\OT1/pplx/m/n/10 (+20) , \OML/zplm/m/it/10 B\OT1/zplm/m/n/10 ) \OMS/zpl
 m/m/n/10 ^^@ \OML/zplm/m/it/10 GE\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 A \OT1/zpl
@@ -779,12 +774,12 @@ m/m/n/10 + \OT1/pplx/m/n/10 (+20) 1, \OML/zplm/m/it/10 B\OT1/zplm/m/n/10 )$ \T1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 262--263
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
 []\T1/pplx/m/it/10 (+20) Case 1\T1/pplx/m/n/10 (+20) : $\OML/zplm/m/it/10 GE\OT
 1/zplm/m/n/10 (\OML/zplm/m/it/10 A\OT1/pplx/m/n/10 (+20) , \OML/zplm/m/it/10 B\
 OT1/zplm/m/n/10 ) \OMS/zplm/m/n/10 ^^@ \OML/zplm/m/it/10 GE\OT1/zplm/m/n/10 (\O
@@ -794,32 +789,32 @@ ML/zplm/m/it/10 A \OT1/zplm/m/n/10 + \OT1/pplx/m/n/10 (+20) 1, \OML/zplm/m/it/1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 262--263
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
 
  []
 
 
-Overfull \hbox (6.94649pt too wide) in paragraph at lines 266--272
+Overfull \hbox (6.94649pt too wide) in paragraph at lines 265--271
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--272
+Underfull \hbox (badness 10000) in paragraph at lines 265--271
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--272
+Underfull \hbox (badness 10000) in paragraph at lines 265--271
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
 []\T1/pplx/m/it/10 (+20) Case 2\T1/pplx/m/n/10 (+20) : $\OML/zplm/m/it/10 GE\OT
 1/zplm/m/n/10 (\OML/zplm/m/it/10 A\OT1/pplx/m/n/10 (+20) , \OML/zplm/m/it/10 B\
 OT1/zplm/m/n/10 ) \OMS/zplm/m/n/10 ^^@ \OML/zplm/m/it/10 GE\OT1/zplm/m/n/10 (\O
@@ -829,27 +824,27 @@ ML/zplm/m/it/10 A \OT1/zplm/m/n/10 + \OT1/pplx/m/n/10 (+20) 1, \OML/zplm/m/it/1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--283
+Underfull \hbox (badness 10000) in paragraph at lines 276--282
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--283
+Underfull \hbox (badness 10000) in paragraph at lines 276--282
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 []\T1/pplx/m/it/10 (+20) Case 3\T1/pplx/m/n/10 (+20) : $\OML/zplm/m/it/10 GE\OT
 1/zplm/m/n/10 (\OML/zplm/m/it/10 A\OT1/pplx/m/n/10 (+20) , \OML/zplm/m/it/10 B\
 OT1/zplm/m/n/10 ) \OMS/zplm/m/n/10 ^^@ \OML/zplm/m/it/10 GE\OT1/zplm/m/n/10 (\O
@@ -859,22 +854,22 @@ ML/zplm/m/it/10 A \OT1/zplm/m/n/10 + \OT1/pplx/m/n/10 (+20) 1, \OML/zplm/m/it/1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--295
+Underfull \hbox (badness 10000) in paragraph at lines 287--294
 
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 288--295
+Underfull \hbox (badness 1057) in paragraph at lines 287--294
 \T1/pplx/m/it/10 (+20) Case 4\T1/pplx/m/n/10 (+20) : $\OML/zplm/m/it/10 GE\OT1/
 zplm/m/n/10 (\OML/zplm/m/it/10 A\OT1/pplx/m/n/10 (+20) , \OML/zplm/m/it/10 B\OT
 1/zplm/m/n/10 ) \OMS/zplm/m/n/10 ^^@ \OML/zplm/m/it/10 GE\OT1/zplm/m/n/10 (\OML
@@ -885,146 +880,164 @@ B\OT1/zplm/m/n/10 ) \OML/zplm/m/it/10 > \OT1/pplx/m/n/10 (+20) 0$\T1/pplx/m/n/1
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--295
+Underfull \hbox (badness 10000) in paragraph at lines 287--294
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
 
  []
 
 
-Overfull \hbox (6.94873pt too wide) in paragraph at lines 298--303
+Overfull \hbox (6.94873pt too wide) in paragraph at lines 297--302
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--303
+Underfull \hbox (badness 10000) in paragraph at lines 297--302
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--307
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--309
+Underfull \hbox (badness 10000) in paragraph at lines 307--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--311
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--313
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
 
  []
 
-<flow1.png, id=123, 250.9375pt x 384.43625pt>
+<flow1.png, id=127, 250.9375pt x 384.43625pt>
 File: flow1.png Graphic file (type png)
  <use flow1.png>
-Package pdftex.def Info: flow1.png used on input line 318.
+Package pdftex.def Info: flow1.png used on input line 317.
 (pdftex.def)             Requested size: 211.02483pt x 323.30553pt.
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <9> not available
-(Font)              Font shape `T1/pplx/b/n' tried instead on input line 319.
+(Font)              Font shape `T1/pplx/b/n' tried instead on input line 318.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--323
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 324--325
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
-
- []
-
-<figure_2.png, id=130, 510.2262pt x 633.0852pt>
+<figure_2.png, id=134, 510.2262pt x 633.0852pt>
 File: figure_2.png Graphic file (type png)
  <use figure_2.png>
-Package pdftex.def Info: figure_2.png used on input line 336.
+Package pdftex.def Info: figure_2.png used on input line 335.
 (pdftex.def)             Requested size: 237.40495pt x 294.56512pt.
  [5 <./flow1.png> <./figure_2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--348
+Underfull \hbox (badness 10000) in paragraph at lines 345--347
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--354
+Underfull \hbox (badness 10000) in paragraph at lines 348--353
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--361
+Underfull \hbox (badness 10000) in paragraph at lines 354--360
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--361
+Underfull \hbox (badness 10000) in paragraph at lines 354--360
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 373
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 372
 .
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
+<figure_3.png, id=144, 580.3281pt x 650.43pt>
+File: figure_3.png Graphic file (type png)
+ <use figure_3.png>
+Package pdftex.def Info: figure_3.png used on input line 380.
+(pdftex.def)             Requested size: 237.40495pt x 266.08253pt.
 
-LaTeX Warning: Citation `Figueredo:2009dg' on page 6 undefined on input line 39
-4.
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
 
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 441.
- [7
+ []
+
+[6 <./figure_3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
+
+ []
+
+<figure_5.png, id=154, 677.1699pt x 422.7795pt>
+File: figure_5.png Graphic file (type png)
+ <use figure_5.png>
+Package pdftex.def Info: figure_5.png used on input line 392.
+(pdftex.def)             Requested size: 237.40495pt x 148.22017pt.
+
+
+LaTeX Warning: Citation `Figueredo:2009dg' on page 7 undefined on input line 41
+9.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./figure_5.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 466.
+ [8
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 441.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 466.
  (./article_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 441.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 441.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 466.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 466.
+Package rerunfilecheck Info: File `article_2.out' has not changed.
+(rerunfilecheck)             Checksum: 833BFE78EAC9A172F829494ED523A8CB;1207.
 
-
-Package rerunfilecheck Warning: File `article_2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `article_2.out':
-(rerunfilecheck)             Before: F79A79471A6BEFFE9DC7C317EC260E70;1111
-(rerunfilecheck)             After:  833BFE78EAC9A172F829494ED523A8CB;1207.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 441.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 466.
  ) 
 Here is how much of TeX's memory you used:
- 11369 strings out of 493089
- 171952 string characters out of 6134842
- 309526 words of memory out of 5000000
- 14316 multiletter control sequences out of 15000+600000
- 73865 words of font info for 303 fonts, out of 8000000 for 9000
+ 11391 strings out of 493089
+ 172254 string characters out of 6134842
+ 310526 words of memory out of 5000000
+ 14329 multiletter control sequences out of 15000+600000
+ 74075 words of font info for 306 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,10n,43p,1384b,368s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,10n,43p,1384b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
@@ -1036,10 +1049,10 @@ exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2015/texmf
 nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
 e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on article_2.pdf (7 pages, 228953 bytes).
+Output written on article_2.pdf (8 pages, 305384 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 49 named destinations out of 1000 (max. 500000)
- 62603 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 62621 words of extra memory for PDF output out of 74296 (max. 10000000)
 

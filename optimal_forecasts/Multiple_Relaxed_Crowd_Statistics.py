@@ -63,7 +63,7 @@ type_populations = {
     "B":200
 }
 
-activation_threshold = 0.05
+activation_threshold = 0
 V = 0
 
 # Define variances, within-type covariance, across-type covariance
@@ -131,7 +131,7 @@ inter_covs = {
 random_rolling_err_list = []
 real_rolling_err_list = []
 
-for i in range(10):
+for i in range(100):
     # Convert these to probabilities
     draw = multi_norm(means, cov_mat)
     bids = []
@@ -311,7 +311,6 @@ for i in range(10):
 
     real_rolling_err_list.append(real_rolling_err)
 
-print(len(real_rolling_err_list[0]), len(random_rolling_err_list[0]))
 average_random = []
 average_scheme = []
 

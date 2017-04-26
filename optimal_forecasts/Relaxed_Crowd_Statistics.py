@@ -56,8 +56,8 @@ def calc_optimal(group_size, var_A, var_B, cov_A, cov_B, cov_AB):
 
 # Define types and their populations
 type_populations = {
-    "A":100,
-    "B":200
+    "A":200,
+    "B":100
 }
 
 activation_threshold = 0
@@ -326,15 +326,15 @@ plt.ylabel("Incentive Value")
 plt.xlabel("Size of Participating Group")
 plt.show()
 
-plt.figure(2)
-x = range(len(real_rolling_err))
-line7, = plt.plot(x, real_rolling_err, 'r--', label="Rolling Error with Scheme")
-line8, = plt.plot(x, random_rolling_err, 'b--', label="Rolling Error with Random Participation")
-plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
-           ncol=2, mode="expand", borderaxespad=0.)
-plt.xlabel("Size of Participation Group")
-plt.ylabel("Absolute Error")
-plt.show()
+# plt.figure(2)
+# x = range(len(real_rolling_err))
+# line7, = plt.plot(x, real_rolling_err, 'r--', label="Rolling Error with Scheme")
+# line8, = plt.plot(x, random_rolling_err, 'b--', label="Rolling Error with Random Participation")
+# plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+#            ncol=2, mode="expand", borderaxespad=0.)
+# plt.xlabel("Size of Participation Group")
+# plt.ylabel("Absolute Error")
+# plt.show()
 # print(realized_bids)
 
 # plt.figure(2)

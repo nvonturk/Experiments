@@ -73,7 +73,7 @@ type_populations = {
     "B":200
 }
 
-activation_threshold = 0.05
+activation_threshold = 0.15
 V = 0
 
 # Define variances, within-type covariance, across-type covariance
@@ -362,7 +362,7 @@ plt.figure(2)
 x = range(len(average_scheme))
 y = range(len(average_msr))
 line7, = plt.plot(x, average_scheme, 'r--', label="Rolling Error with Scheme")
-line8, = plt.plot(y, average_msr, 'b--', label="Rolling Error with Random Participation")
+line8, = plt.plot(y, average_msr, 'b--', label="Rolling Error with Market Scoring Rule")
 plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
            ncol=2, mode="expand", borderaxespad=0.)
 plt.xlabel("Size of Participation Group")

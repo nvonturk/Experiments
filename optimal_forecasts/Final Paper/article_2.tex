@@ -136,7 +136,6 @@ We know that for a (strictly) proper scoring rule, the function $G(\vec{p})$ is 
 \subsection{Optimal Forecasting Groups}
 
 The following model and results stem from the work by Lamberson and Page (LP) \cite{3} as they characterized what makes an optimal forecasting group under their assumptions. This section summarizes the details of their model and results that are relevant to the work in this paper.\\
-\newline
 \subsubsection{Basic Framework}
 In the model, agents have a goal of estimating some quantity $V$. Each of the $M$ agents is characterized by a random variable $s_i$, which is their prediction of the quantity $V$. The random variable $\epsilon_i = s_i - V$ is the error in prediction for the $i_{th}$ agent. The aggregate estimate of the crowd of agents is $G(\vec{s}) = \frac1M \sum_i s_i$. In \cite{3}, LP focuses solely on the simple average as a way of aggregating individual estimates. Finally, the metric for accuracy in LP is group squared error, $(G(\vec{s}) - V)^2)$. LP then uses the \textit{bias-variance-covariance} decomposition to expand the expected value of the group squared error:
 
@@ -373,6 +372,30 @@ C = \delta * C
 where $\delta \in \mathbb{R}$ and $0 < \delta < 1$. This need not be the only correct way to scale $C$; as long as $|C'| < |C|$.
 
 \subsubsection{Results for Relaxed Incentive Scheme}
+
+The introduction of an adjustable $C$ term and incentive for truthful reporting of type led to an increase in liquidity as can be seen below:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.45\textwidth]{figure_3.png}
+\caption{Market Simulation with Relaxed C: A=200, B=100}
+\end{figure}
+
+Here, the incentive scheme adapts to ensure that the market doesn't simply stop when the current proportions for the participating pool are very close or equal to the optimal proportions. One can see from the second subplot that the incentives for type $a$ and type $b$ oscillate as more individuals are incorporated into the pool.\\
+
+Another interesting thing to note about the two subplots is how they change when the participating group size gets to be around 180. We see a large spike in the incentive for a type $b$ to participate as well as the proportion of the group that is of type $a$ to increase with respect to the optimal proportion. At this point, the available type $b$ agents have all participated.\\
+
+The value of this scheme is that at any point during market operation, the market is optimally incentivizing agents that will improve the group error in expectation. With respect to accuracy, below is a graph illustrating the average prediction error of the relaxed incentive scheme versus the average error of a market without any incentive scheme.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.45\textwidth]{figure_5.png}
+\caption{Accuracy Comparison for Relaxed Scheme: A=200, B=100 (average of 100 trials)}
+\end{figure}
+
+We can see that the incentive scheme helps to keep the true error low throughout the progression of bidding in the market. Notice as well that the average error for the incentive scheme begins to rise at a crowd size of ~240 individuals. This sudden shift corresponds to the incentive scheme running out of bidders of the preferred type and allowing the other type to bid as well. How to detect when the market has exhausted a particular type in the available pool of participants will be discussed as a topic of future work.
+
+
 
 
 
