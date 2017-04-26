@@ -248,12 +248,12 @@ where $G(\vec{p})$ is the expected reward for reporting $\vec{p}$. Now, to incen
 \begin{equation}
 \label{strictutil1}
 \pi(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A+1,B)] \ if \ \theta=a
-\end{equation}\\
+\end{equation}
 
 \begin{equation}
 \label{strictutil2}
 \pi(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A,B+1)] \ if \ \theta=b
-\end{equation}\\
+\end{equation}
 
 where $C$ is a constant chosen by the market organizer and $GE(A,B)$ denotes the current proportions of agents in the crowd. Without asking for an individual to report their type, $C$ must be chosen in such a way that the type that is less favored or will produce more error in the group estimation of the probability is completely disincentivized from participating. This means that for the unfavored type, $C[GE(A,B) - GE(A+1,B)] \leq -|\max_{\vec{p}}G(\vec{p})|$. This would ensure that for the highest possible $G(\vec{p})$ value for the unwanted type, that type would have no incentive to bid. For the majority of the paper, we will consider how we choose $C$ in the context of a quadratic scoring rule where the maximum possible expected payoff is 1.\\
 
@@ -268,6 +268,7 @@ $
 C = \min\{{\frac{1}{|GE(A,B) - GE(A+1,B)|}, \frac{1}{|GE(A,B) - GE(A,B+1)|}}\}
 $
 }\\
+\newline
 
 \textit{Case 2}: $GE(A,B) - GE(A+1,B)>0$, $GE(A,B) - GE(A,B+1)<0$\\
 
@@ -278,6 +279,7 @@ $
 C = \frac{1}{|GE(A,B) - GE(A,B+1)|}
 $
 }\\
+\newline
 
 \textit{Case 3}: $GE(A,B) - GE(A+1,B)<0$, $GE(A,B) - GE(A,B+1)>0$\\
 
@@ -288,7 +290,7 @@ $
 C = \frac{1}{|GE(A,B) - GE(A+1,B)|}
 $
 }\\
-
+\newline
 \textit{Case 4}: $GE(A,B) - GE(A+1,B)>0$, $GE(A,B) - GE(A,B+1)>0$\\
 
 Here, the introduction of either type will lead to an improvement in expected group accuracy. However, since the market organizer is not soliciting agent types, they must create a disincentive such that only one type can rationally bid. That way they can be sure of the population sizes $A,B$. Ideally, the agent type with the greatest contribution to the group accuracy would be the type that is not totally disincentivized from participating. However, since the $C$ value must necessarily be negative, the type that would reduce the expected error of the group the most will always have a stronger disincentive than the opposing type. Since we would like at least one type to participate, the value for $C$ is given by the following:\\
@@ -339,12 +341,27 @@ From the simulation, one can see the incentive working in the first subplot. As 
 
 \subsection{Relaxed Incentive Scheme}
 
-The two most salient issues with the strict incentive scheme above is the reliance on severe incentives to exclude a particular type and a lack of liquidity as the size of the participating pool increases. We would like to propose a way to relax these incentives while knowing the types of the individuals that are included in the participating pool. If the incentives for both types are greater than -1, that leaves the possibility that both types could participate. Therefore, the market organizer will need to elicit the types from the agents themselves, and the incentive scheme must guarantee that it is always in the best interests of each agent to report their type truthfully.
+The two most salient issues with the strict incentive scheme above is the reliance on severe incentives to exclude a particular type and a lack of liquidity as the size of the participating pool increases. We would like to propose a way to relax these incentives while knowing the types of the individuals that are included in the participating pool. If the incentives for both types are greater than -1, that leaves the possibility that both types could participate. Therefore, the market organizer will need to elicit the types from the agents themselves, and the incentive scheme must guarantee that it is always in the best interests of each agent to report their type truthfully.\\
 
-Previously, the scheme made the payoff for any market participant proportional to the accuracy and sharpness of their prediction as well as their effect on the expected accuracy of the group prediction. 
+Previously, the scheme made the payoff for any market participant proportional to the accuracy and sharpness of their prediction as well as their effect on the expected accuracy of the group prediction. Had the individuals been asked to self-report types, there would be no incentive to either lie or tell the truth, since the incentives are not linked to their reported type but to their actual type. To ensure that there is a strict incentive to tell the truth, we propose the following addition to the scheme from earlier.
+\newline
 
+\resizebox{0.45 \textwidth}{!}{
+$
+\pi_i(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A+1,B)] - \sum_{j>i} e^{-j} \Delta GE_j \ if \ \theta=a
+$
+}\\
 
+\resizebox{0.45 \textwidth}{!}{
+$
+\pi_i(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A,B+1)] -  \sum_{j>i} e^{-j} \Delta GE_j\ if \ \theta=b
+$
+}\\
+\newline
 
+where $j$ indicates an agent that participates after the current agent $i$ participates. Furthermore, $\Delta GE_j$ is short for the change in expected group error following the inclusion of $j$. If $\Delta GE_j > 0$, expected group error increased, hence the subtraction of this term from the expected payoff.\\
+
+This term will reward current participants in the market if future participants bring the expected group error down as well. This term provides agent $i$ with a positive incentive to report their type truthfully. If the agent reports untruthfully, it does not affect that agent in the near term but it will skew the known proportions in the crowd such that future agents cannot make fully-informed decisions as to whether or not they are of the right type for the market at that moment. This could lead to the inclusion of the wrong type at a particular stage in the market after $i$ has participated.
 
 
 
