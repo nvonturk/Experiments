@@ -33,7 +33,9 @@
 \usepackage[lmargin=0.8in, rmargin=0.8in, hmarginratio=2:2,top=20mm,columnsep=15pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
-
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 \usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
 
 \usepackage{enumitem} % Customized lists
@@ -296,6 +298,35 @@ $
 C = - \min\{{\frac{1}{|GE(A,B) - GE(A+1,B)|}, \frac{1}{|GE(A,B) - GE(A,B+1)|}}\}
 $
 }\\
+
+\subsubsection{Simulation for Strict Incentive Scheme}
+
+The overarching goal of the simulation is to generate a series of agents, whose error variance and covariance values satisfy type coherence, and have them choose whether or not to participate based on the incentives currently put forth by our incentive scheme. Please refer to Figure 1 for a general representation of the simulation workflow. Note that the yellow blocks indicate "setup" procedures, green blocks represent the simulation loop, and the red block indicates a halting state for the simulation.\\
+
+\textit{Initialization}\\
+
+The initialization parameters include: $A$, $B$, $var(\epsilon_a)$, $var(\epsilon_b)$, $cov(\epsilon_a)$, $cov(\epsilon_b)$, $cov(\epsilon_a, \epsilon_b), V$. The variance and covariance values are chosen to ensure type coherence. By default, $V$ is set to 0. These values are then used to build an $M \times M$ covariance matrix. This matrix is then squared to ensure positive semi-definiteness.\\
+
+\textit{Generation of Predictions}\\
+
+Using the covariance matrix and the value $V$, the simulation constructs a multivariate normal distribution and draws from it. The draw, which is a vector of length $M$, represents the agents beliefs of the true value $V$. Note that these are not probability values and must be transformed to a vector of predictions where each entry is between 0 and 1. This transformation is done by standardizing each entry in the vector by the agent's standard deviation and mean and finding the cumulative distribution function at that value.
+
+\begin{figure}[h]
+\caption{Simulation Workflow for Strict Incentive Scheme}
+\centering
+\includegraphics[width=0.4\textwidth]{flow1}
+\end{figure}
+
+\textit{Market Simulation}\\
+
+Note that from the result by LP in \cite{3}, the expected group prediction error is undefined for a group of size 0 ($M = 0$). Therefore, we cannot apply our additional incentive to the first market participant. We assume arbitrarily to know the type of the first market participant. In reality, this would simply introduce an "off-by-one" error in our estimation of the expected group error.\\
+
+The first participant is selected randomly from the pool of available participants, all of whom have no additional incentive or disincentive to participate. From there, the market organizer calculates the incentives and appropriate $C$ such that the less desirable type for the current state of the market is totally disincentivized from joining per the proposed scheme. Given the newly updated set of incentives, the remaining individuals that have not yet bid recalculate their expected payoffs and choose to remain in the available bidding pool if their payoff is greater than 0. The market simulation terminates when the available pool of willing participants has size 0.\\
+
+The following are a couple assumptions to note about the simulation. First, the choice to choose randomly from the pool arrive to market in a random order; there are no high-speed traders in this market. Second, information is integrated into the market immediately and each bidder can update their choice to participate instantaneously.
+
+
+
 
 
 
