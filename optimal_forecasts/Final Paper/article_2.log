@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2017 10:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2017 10:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -937,29 +937,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 324--325
  []
 
 
-LaTeX Warning: Citation `Figueredo:2009dg' on page 5 undefined on input line 34
-9.
+Underfull \hbox (badness 2150) in paragraph at lines 328--328
+ |[]\T1/pplx/b/n/10 Results and Dis-cus-sion for Strict In-cen-tive
+ []
+
+
+LaTeX Warning: Citation `Figueredo:2009dg' on page 5 undefined on input line 35
+3.
 
 [5 <./flow1.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 396.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 400.
  [6
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 396.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 400.
  (./article_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 396.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 396.
-Package rerunfilecheck Info: File `article_2.out' has not changed.
-(rerunfilecheck)             Checksum: 2E3AA4115AA36E57FECA218F7085197A;942.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 400.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 400.
 
+
+Package rerunfilecheck Warning: File `article_2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `article_2.out':
+(rerunfilecheck)             Before: 2E3AA4115AA36E57FECA218F7085197A;942
+(rerunfilecheck)             After:  3160C725B8190FA8ECE47C5BA2C1D396;1052.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 396.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 400.
  ) 
 Here is how much of TeX's memory you used:
- 11321 strings out of 493089
- 171291 string characters out of 6134842
+ 11322 strings out of 493089
+ 171310 string characters out of 6134842
  309474 words of memory out of 5000000
  14300 multiletter control sequences out of 15000+600000
  72359 words of font info for 284 fonts, out of 8000000 for 9000
@@ -975,10 +986,10 @@ exmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2015/texmf-dis
 t/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts
 /type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
 urw/palatino/uplri8a.pfb>
-Output written on article_2.pdf (6 pages, 178810 bytes).
+Output written on article_2.pdf (6 pages, 179201 bytes).
 PDF statistics:
- 177 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 43 named destinations out of 1000 (max. 500000)
+ 178 PDF objects out of 1000 (max. 8388607)
+ 157 compressed objects within 2 object streams
+ 44 named destinations out of 1000 (max. 500000)
  62582 words of extra memory for PDF output out of 74296 (max. 10000000)
 
