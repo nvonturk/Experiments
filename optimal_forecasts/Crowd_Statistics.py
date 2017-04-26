@@ -104,7 +104,7 @@ for i in range(num_agents):
             cov_mat[j][i] = inter_covs[''.join(sorted(agent1 + agent2))]
 
 cov_mat = np.dot(np.matrix(cov_mat), np.matrix(cov_mat).T)
-# print(cov_mat)
+print(cov_mat)
 means = [V for i in range(num_agents)]
 
 draw = multi_norm(means, cov_mat)

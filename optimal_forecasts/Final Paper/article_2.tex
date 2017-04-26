@@ -30,7 +30,7 @@
 
 \usepackage[english]{babel} % Language hyphenation and typographical rules
 \usepackage{graphicx}
-\usepackage[lmargin=0.8in, rmargin=0.8in, hmarginratio=2:2,top=20mm,columnsep=15pt]{geometry} % Document margins
+\usepackage[lmargin=0.6in, rmargin=0.6in, hmarginratio=2:2,top=20mm,columnsep=15pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{amsmath}
@@ -255,7 +255,7 @@ where $G(\vec{p})$ is the expected reward for reporting $\vec{p}$. Now, to incen
 \pi(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A,B+1)] \ if \ \theta=b
 \end{equation}\\
 
-where $C$ is a constant chosen by the market organizer and $GE(A,B)$ denotes the current proportions of agents in the crowd. Without asking for an individual to report their type, $C$ must be chosen in such a way that the type that is less favored or will produce more error in the group estimation of the probability is completely disincentivized from participating. This means that for the unfavored type, $C[GE(A,B) - GE(A+1,B)] \leq -|\max_{\vec{p}}G(\vec{p})|$. This would ensure that for the highest possible $G(\vec{p})$ value for the unwanted type, that type would have no incentive to bid.\\
+where $C$ is a constant chosen by the market organizer and $GE(A,B)$ denotes the current proportions of agents in the crowd. Without asking for an individual to report their type, $C$ must be chosen in such a way that the type that is less favored or will produce more error in the group estimation of the probability is completely disincentivized from participating. This means that for the unfavored type, $C[GE(A,B) - GE(A+1,B)] \leq -|\max_{\vec{p}}G(\vec{p})|$. This would ensure that for the highest possible $G(\vec{p})$ value for the unwanted type, that type would have no incentive to bid. For the majority of the paper, we will consider how we choose $C$ in the context of a quadratic scoring rule where the maximum possible expected payoff is 1.\\
 
 Both $GE(A,B) - GE(A+1,B)$ and $GE(A,B) - GE(A,B+1)$ can take on positive or negative values. \\
 
@@ -312,9 +312,9 @@ The initialization parameters include: $A$, $B$, $var(\epsilon_a)$, $var(\epsilo
 Using the covariance matrix and the value $V$, the simulation constructs a multivariate normal distribution and draws from it. The draw, which is a vector of length $M$, represents the agents beliefs of the true value $V$. Note that these are not probability values and must be transformed to a vector of predictions where each entry is between 0 and 1. This transformation is done by standardizing each entry in the vector by the agent's standard deviation and mean and finding the cumulative distribution function at that value.
 
 \begin{figure}[h]
-\caption{Simulation Workflow for Strict Incentive Scheme}
 \centering
 \includegraphics[width=0.4\textwidth]{flow1}
+\caption{Simulation Workflow for Strict Incentive Scheme}
 \end{figure}
 
 \textit{Market Simulation}\\
@@ -323,11 +323,25 @@ Note that from the result by LP in \cite{3}, the expected group prediction error
 
 The first participant is selected randomly from the pool of available participants, all of whom have no additional incentive or disincentive to participate. From there, the market organizer calculates the incentives and appropriate $C$ such that the less desirable type for the current state of the market is totally disincentivized from joining per the proposed scheme. Given the newly updated set of incentives, the remaining individuals that have not yet bid recalculate their expected payoffs and choose to remain in the available bidding pool if their payoff is greater than 0. The market simulation terminates when the available pool of willing participants has size 0.\\
 
-The following are a couple assumptions to note about the simulation. First, the choice to choose randomly from the pool arrive to market in a random order; there are no high-speed traders in this market. Second, information is integrated into the market immediately and each bidder can update their choice to participate instantaneously.
+The following are a couple assumptions to note about the simulation. First, the choice to choose randomly from the pool enforces arrival to market happens in a random order; there are no high-speed traders in this market. Second, information is integrated into the market immediately and each bidder can update their choice to participate instantaneously.
 
-\subsubsection{Results and Discussion for Strict Incentive Scheme}
+\subsubsection{Results for Strict Incentive Scheme}
 
+Below in Figure 2, one can see participation proportions and incentives for a single simulation.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.45\textwidth]{figure_2.png}
+\caption{Market Simulation: A=200, B=100}
+\end{figure}
+
+From the simulation, one can see the incentive working in the first subplot. As the crowd gets larger, the actual proportions of the crowd adhere to the optimal proportions related to the covariance and variance statistics of the two types. However, one also notices that the market simulation terminated prior to everyone participating, since the total number of participants does not reach 300. Below, for the same point along the horizontal axis, we see that the incentives for both types for that crowd size in that simulation are both close to -1. Since the actual crowd proportions approach the optimal crowd proportions as the crowd gets larger, a slight deviation in the form of including another individual of either type will leave the crowd in a worse state. However, we know from LP \cite{3} that as the size of the crowd gets larger, expected group error decreases. Here, the market is halting at a local minimum expected error. To prevent this from happening, we will try to relax the incentive scheme to increase market liquidity.
+
+\subsection{Relaxed Incentive Scheme}
+
+The two most salient issues with the strict incentive scheme above is the reliance on severe incentives to exclude a particular type and a lack of liquidity as the size of the participating pool increases. We would like to propose a way to relax these incentives while knowing the types of the individuals that are included in the participating pool. If the incentives for both types are greater than -1, that leaves the possibility that both types could participate. Therefore, the market organizer will need to elicit the types from the agents themselves, and the incentive scheme must guarantee that it is always in the best interests of each agent to report their type truthfully.
+
+Previously, the scheme made the payoff for any market participant proportional to the accuracy and sharpness of their prediction as well as their effect on the expected accuracy of the group prediction. 
 
 
 

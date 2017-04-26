@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2017 10:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2017 12:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -545,14 +545,14 @@ e
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * hratio: 2:2
 * modes: twoside 
-* h-part:(L,W,R)=(57.81621pt, 498.66258pt, 57.81621pt)
+* h-part:(L,W,R)=(43.36243pt, 527.57014pt, 43.36243pt)
 * v-part:(T,H,B)=(56.9055pt, 642.66711pt, 95.39737pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=498.66258pt
+* \textwidth=527.57014pt
 * \textheight=642.66711pt
-* \oddsidemargin=-14.45378pt
-* \evensidemargin=-14.45378pt
+* \oddsidemargin=-28.90756pt
+* \evensidemargin=-28.90756pt
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -645,8 +645,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--108
  []
 
 
-Underfull \hbox (badness 5578) in paragraph at lines 103--108
-\T1/pplx/m/n/10 (+20) There is also sub-stan-tial re-search fo-cused on
+Underfull \hbox (badness 10000) in paragraph at lines 122--128
+
+ []
+
+
+Underfull \hbox (badness 2818) in paragraph at lines 122--128
+\T1/pplx/m/n/10 (+20) There are cer-tain prop-er-ties of scor-ing rules that
  []
 
 
@@ -655,8 +660,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--128
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--128
-
+Underfull \hbox (badness 2460) in paragraph at lines 122--128
+\T1/pplx/m/n/10 (+20) The ex-pected value of an agent pre-dict-ing a the
  []
 
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
@@ -698,7 +703,7 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                 on input line 202.
 
 
-Overfull \hbox (7.52545pt too wide) in paragraph at lines 198--203
+Overfull \hbox (6.94934pt too wide) in paragraph at lines 198--203
 [][] 
  []
 
@@ -718,7 +723,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 205--208
  []
 
 
-Overfull \hbox (7.52379pt too wide) in paragraph at lines 209--214
+Overfull \hbox (6.94814pt too wide) in paragraph at lines 209--214
 [][] 
  []
 
@@ -730,6 +735,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 209--214
 
 Underfull \hbox (badness 10000) in paragraph at lines 215--218
 
+ []
+
+
+Underfull \hbox (badness 1796) in paragraph at lines 215--218
+\T1/pplx/m/n/10 (+20) This con-cludes the sum-mary of the re-sults of LP,
+ []
+
+
+Underfull \hbox (badness 1648) in paragraph at lines 221--222
+\T1/pplx/m/n/10 (+20) av-er-age er-ror and dis-cour-age the type that would
  []
 
 
@@ -752,7 +767,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 251--252
 
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
@@ -762,8 +777,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 258--259
 
  []
 
-
-Underfull \hbox (badness 1629) in paragraph at lines 260--261
+[3]
+Underfull \hbox (badness 8151) in paragraph at lines 260--261
 []\T1/pplx/m/n/10 (+20) Both $\OML/zplm/m/it/10 GE\OT1/zplm/m/n/10 (\OML/zplm/m
 /it/10 A\OT1/pplx/m/n/10 (+20) , \OML/zplm/m/it/10 B\OT1/zplm/m/n/10 ) \OMS/zpl
 m/m/n/10 ^^@ \OML/zplm/m/it/10 GE\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 A \OT1/zpl
@@ -799,7 +814,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 264--265
  []
 
 
-Overfull \hbox (7.52347pt too wide) in paragraph at lines 266--271
+Overfull \hbox (6.94649pt too wide) in paragraph at lines 266--271
 [][] 
  []
 
@@ -879,7 +894,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 294--295
  []
 
 
-Overfull \hbox (7.52435pt too wide) in paragraph at lines 296--301
+Overfull \hbox (6.94873pt too wide) in paragraph at lines 296--301
 [][] 
  []
 
@@ -908,15 +923,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
-[4]
-LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <9> not available
-(Font)              Font shape `T1/pplx/b/n' tried instead on input line 315.
- <flow1.png, id=119, 250.9375pt x 384.43625pt>
+<flow1.png, id=123, 250.9375pt x 384.43625pt>
 File: flow1.png Graphic file (type png)
  <use flow1.png>
-Package pdftex.def Info: flow1.png used on input line 317.
-(pdftex.def)             Requested size: 199.46198pt x 305.59016pt.
-
+Package pdftex.def Info: flow1.png used on input line 316.
+(pdftex.def)             Requested size: 211.02483pt x 323.30553pt.
+LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <9> not available
+(Font)              Font shape `T1/pplx/b/n' tried instead on input line 317.
+ [4]
 Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
@@ -927,55 +941,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 322--323
  []
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 324--325
-\T1/pplx/m/n/10 (+20) newly up-dated set of in-cen-tives, the re-main-ing
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 324--325
 
  []
 
+<figure_2.png, id=130, 510.2262pt x 633.0852pt>
+File: figure_2.png Graphic file (type png)
+ <use figure_2.png>
+Package pdftex.def Info: figure_2.png used on input line 334.
+(pdftex.def)             Requested size: 237.40495pt x 294.56512pt.
+ [5 <./flow1.png> <./figure_2.png>]
 
-Underfull \hbox (badness 2150) in paragraph at lines 328--328
- |[]\T1/pplx/b/n/10 Results and Dis-cus-sion for Strict In-cen-tive
- []
+LaTeX Warning: Citation `Figueredo:2009dg' on page 6 undefined on input line 36
+8.
 
-
-LaTeX Warning: Citation `Figueredo:2009dg' on page 5 undefined on input line 35
-3.
-
-[5 <./flow1.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 400.
- [6
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 400.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
+[6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 415.
  (./article_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 400.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 400.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 415.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 415.
+Package rerunfilecheck Info: File `article_2.out' has not changed.
+(rerunfilecheck)             Checksum: F79A79471A6BEFFE9DC7C317EC260E70;1111.
 
-
-Package rerunfilecheck Warning: File `article_2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `article_2.out':
-(rerunfilecheck)             Before: 2E3AA4115AA36E57FECA218F7085197A;942
-(rerunfilecheck)             After:  3160C725B8190FA8ECE47C5BA2C1D396;1052.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 400.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 415.
  ) 
 Here is how much of TeX's memory you used:
- 11322 strings out of 493089
- 171310 string characters out of 6134842
+ 11347 strings out of 493089
+ 171581 string characters out of 6134842
  309474 words of memory out of 5000000
- 14300 multiletter control sequences out of 15000+600000
- 72359 words of font info for 284 fonts, out of 8000000 for 9000
+ 14306 multiletter control sequences out of 15000+600000
+ 73291 words of font info for 297 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,11n,43p,1384b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,10n,43p,1384b,372s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
@@ -986,10 +987,10 @@ exmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2015/texmf-dis
 t/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts
 /type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
 urw/palatino/uplri8a.pfb>
-Output written on article_2.pdf (6 pages, 179201 bytes).
+Output written on article_2.pdf (6 pages, 220587 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 157 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
- 62582 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 189 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 62603 words of extra memory for PDF output out of 74296 (max. 10000000)
 
