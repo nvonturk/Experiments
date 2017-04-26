@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2017 13:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2017 18:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -985,49 +985,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 373
+.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ufplmbb.fd
+File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
+)
 
-LaTeX Warning: Citation `Figueredo:2009dg' on page 6 undefined on input line 38
+LaTeX Warning: Citation `Figueredo:2009dg' on page 6 undefined on input line 39
 4.
 
 [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 431.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 441.
  [7
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 431.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 441.
  (./article_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 431.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 431.
-Package rerunfilecheck Info: File `article_2.out' has not changed.
-(rerunfilecheck)             Checksum: F79A79471A6BEFFE9DC7C317EC260E70;1111.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 441.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 441.
 
+
+Package rerunfilecheck Warning: File `article_2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `article_2.out':
+(rerunfilecheck)             Before: F79A79471A6BEFFE9DC7C317EC260E70;1111
+(rerunfilecheck)             After:  833BFE78EAC9A172F829494ED523A8CB;1207.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 431.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 441.
  ) 
 Here is how much of TeX's memory you used:
- 11352 strings out of 493089
- 171618 string characters out of 6134842
- 309474 words of memory out of 5000000
- 14306 multiletter control sequences out of 15000+600000
- 73514 words of font info for 300 fonts, out of 8000000 for 9000
+ 11369 strings out of 493089
+ 171952 string characters out of 6134842
+ 309526 words of memory out of 5000000
+ 14316 multiletter control sequences out of 15000+600000
+ 73865 words of font info for 303 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,10n,43p,1384b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,10n,43p,1384b,368s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts
-/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-urw/palatino/uplri8a.pfb>
-Output written on article_2.pdf (7 pages, 223270 bytes).
+ve/2015/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/urw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/
+palatino/uplri8a.pfb>
+Output written on article_2.pdf (7 pages, 228953 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
- 47 named destinations out of 1000 (max. 500000)
+ 202 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
+ 49 named destinations out of 1000 (max. 500000)
  62603 words of extra memory for PDF output out of 74296 (max. 10000000)
 

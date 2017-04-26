@@ -8,6 +8,7 @@ from scipy.special import comb
 import pprint
 import random
 from statistics import mean
+import copy
 
 
 
@@ -49,6 +50,15 @@ def utility(bid, activation_threshold, incentive, C):
     # print("Payout w/o Incentive", bid*payoff_1 + (1-bid)*payoff_2 - activation_threshold)
     # print("Payout w/ Incentive", (bid*payoff_1 + (1-bid)*payoff_2 - activation_threshold + C*incentive))
     return (bid*payoff_1 + (1-bid)*payoff_2 - activation_threshold + C*incentive)
+
+def msr_util(bid, previous_bid, activation_threshold):
+    payoff_1 = 2*bid - bid**2 - (1-bid)**2
+    payoff_2 = 2*(1-bid) - bid**2 - (1-bid)**2
+
+    prev_payoff_1 = 2*previous_bid - previous_bid**2 - (1-previous_bid)**2
+    prev_payoff_2 = 2*(1-previous_bid) - previous_bid**2 - (1-previous_bid)**2
+
+    return bid*(payoff_1-prev_payoff_1) + (1-bid)*(payoff_2-prev_payoff_2) - activation_threshold
 
 def calc_optimal(group_size, var_A, var_B, cov_A, cov_B, cov_AB):
     tc = float(cov_A + cov_B - 2*cov_AB)
@@ -128,10 +138,10 @@ inter_covs = {
 }
 
 
-random_rolling_err_list = []
+msr_rolling_err_list = []
 real_rolling_err_list = []
 
-for i in range(10):
+for i in range(1):
     # Convert these to probabilities
     draw = multi_norm(means, cov_mat)
     bids = []
@@ -142,23 +152,41 @@ for i in range(10):
 
 
 
-    random_bids = bids
-    random.shuffle(random_bids)
+    msr_bids = copy.deepcopy(bids)
+    random.shuffle(msr_bids)
 
     # print(bids)
     # print([bid[1] for bid in bids])
     # print("MEAN", sum([bid[1] for bid in bids])/len(bids))
     realized_bids = []
-    random_realized_bids = []
-    random_rolling_err = []
+    msr_realized_bids = []
+    msr_rolling_err = []
 
 
     realized_payoffs = []
     realized_draws = []
-    for bid in random_bids:
-        random_realized_bids.append(bid[1])
-        random_rolling_err.append(abs(sum(random_realized_bids)/len(random_realized_bids) - 0.5))
-    random_rolling_err_list.append(random_rolling_err)
+
+    previous_bid = 0.5
+
+    eligible_participants = []
+    for bid in msr_bids:
+        if msr_util(bid[1], previous_bid, activation_threshold) > 0:
+            print("HER")
+            eligible_participants.append(bid)
+
+    while len(eligible_participants) > 0:
+        rand_pick = int(round(uniform(0, len(eligible_participants) - 1)))
+        pick = eligible_participants[rand_pick]
+        previous_bid = pick[1]
+        msr_realized_bids.append(previous_bid)
+        msr_rolling_err.append(abs(previous_bid - 0.5))
+
+        msr_bids.remove(pick)
+        eligible_participants = []
+        for bid in msr_bids:
+            if msr_util(bid[1], previous_bid, activation_threshold) > 0:
+                eligible_participants.append(bid)
+    msr_rolling_err_list.append(msr_rolling_err)
 
         
 
@@ -311,8 +339,8 @@ for i in range(10):
 
     real_rolling_err_list.append(real_rolling_err)
 
-print(len(real_rolling_err_list[0]), len(random_rolling_err_list[0]))
-average_random = []
+print(len(real_rolling_err_list[0]), len(msr_rolling_err_list[0]))
+average_msr = []
 average_scheme = []
 
 for j in range(len(real_rolling_err_list[0])):
@@ -321,16 +349,20 @@ for j in range(len(real_rolling_err_list[0])):
         index_vals.append(real_rolling_err_list[i][j])
     average_scheme.append(sum(index_vals)/len(index_vals))
 
-for j in range(len(random_rolling_err_list[0])):
+print(len(msr_rolling_err_list[0]))
+for j in range(len(msr_rolling_err_list[0])):
     index_vals = []
-    for i in range(len(random_rolling_err_list)):
-        index_vals.append(random_rolling_err_list[i][j])
-    average_random.append(sum(index_vals)/len(index_vals))
+    for i in range(len(msr_rolling_err_list)):
+        index_vals.append(msr_rolling_err_list[i][j])
+    average_msr.append(sum(index_vals)/len(index_vals))
+
+print(len(average_msr), len(average_scheme))
 
 plt.figure(2)
 x = range(len(average_scheme))
+y = range(len(average_msr))
 line7, = plt.plot(x, average_scheme, 'r--', label="Rolling Error with Scheme")
-line8, = plt.plot(x, average_random, 'b--', label="Rolling Error with Random Participation")
+line8, = plt.plot(y, average_msr, 'b--', label="Rolling Error with Random Participation")
 plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
            ncol=2, mode="expand", borderaxespad=0.)
 plt.xlabel("Size of Participation Group")
