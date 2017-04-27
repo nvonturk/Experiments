@@ -397,9 +397,13 @@ We can see that the incentive scheme helps to keep the true error low throughout
 
 \subsubsection{Comparison to a Market Scoring Rule}
 
-Originally, one goal was to compare the scheme proposed in this paper with the well-known market scoring rule \cite{5} in order to compare the accuracy of one to another in determining the aggregate prediction for the likelihood of an event happening. However, there are some structural differences between the two setups that makes making a fair comparison difficult. Most notably, 
+Originally, one goal was to compare the scheme proposed in this paper with the well-known market scoring rule \cite{5} in order to compare the accuracy of one to another in determining the aggregate prediction for the likelihood of an event happening. However, there is a structural difference between the two setups that makes making a fair comparison difficult. The results from LP in \cite{3} rely heavily on the idea that the agents making forecasts are totally independent. However, in a market scoring rule, the utility an agent receives is linked to the last individual's prediction and oftentimes, the prediction made by an agent is altered by their reasoning over the last agent's bid. For the sake of experimentation, a market was simulated both using a market scoring rule and the proposed scheme, but the simulation revealed no significant insights.
 
-\section{Discussion and Future Work}
+\section{Future Work}
+
+One of the more interesting results from this paper is that the relaxed incentive scheme could maintain an optimally wise crowd at each moment of the operation of a market, up until the point where a particular type of forecaster was scarce. Given a prior distribution over the relative quantities of individual types in a prediction market, one could devise a method for shutting down a prediction market when the probability that the more desirable type has not shown up in several iterations becomes to low, indicating that the market has exhausted that perspective.\\
+
+Two other topics for future work that this paper naturally leads the reader to are how the proposed incentive system changes when different (non quadratic) scoring rules are used and how much it would cost to run the incentive scheme. While it was hoped these questions could be answered in this paper, tackling the issues of thin bidding pools in the strict scheme and eliciting honest type reporting were treated with higher priority.
 
 
 
