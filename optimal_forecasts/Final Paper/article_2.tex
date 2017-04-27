@@ -83,7 +83,8 @@
 \date{\today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
-\noindent   % Dummy abstract text - replace \blindtext with your abstract text
+\noindent   In this paper, we see how current literature surrounding wise crowds and their characteristics can be used to develop a system of incentives that ensures an optimal composition of bidder types in a prediction market. We first propose a strict set of incentives and then relax them while providing a way for the market organizer to elicit bidder types truthfully.
+% Dummy abstract text - replace \blindtext with your abstract text
 \end{abstract}
 }
 
@@ -100,11 +101,11 @@
 
 \section{Introduction}
 
-Wisdom of crowds describes a phenomenon in which a group of individuals perform a task or make a decision with an acumen greater than any single individual. Oftentimes, the disparity between a single individual performing a task and the collective is stark. Possibly the most quoted and most widely referenced single instance of wisdom of the crowds is attributed to Sir Francis Galton's observations of a crowd estimating the weight of an ox.\footnote{His original paper, \textit{Vox Populi}, was published in \textit{Nature} in March of 1907. doi:10.1038/075450a0}. He noted that the crowd's average prediction was within 1 percent of the oxen's true weight. Since then, wisdom of the crowds has garnered interest from various industries and academic fields as more individuals try to ascertain what makes a crowd intelligent and how crowd intelligence be utilized to perform tasks that would be difficult for any single individual. The most prevalent example of crowds being used to accomplish tasks comes in the form of markets, where groups of individuals contribute their private information and perspective for personal gain, and in so doing, help to attain an accurate estimation of a quantity. This quantity could be the value of a particular company's stock or the likelihood of some event happening in the future.\\
+Wisdom of crowds describes a phenomenon in which a group of individuals perform a task or make a decision with an acumen greater than any single individual. Oftentimes, the disparity between a single individual performing a task and the collective is stark. Possibly the most quoted and most widely referenced single instance of wisdom of the crowds is attributed to Sir Francis Galton's observations of a crowd estimating the weight of an ox.\footnote{His original paper, \textit{Vox Populi}, was published in \textit{Nature} in March of 1907. doi:10.1038/075450a0}. He noted that the crowd's average prediction was within 1 percent of the ox's true weight. Since then, wisdom of the crowds has garnered interest from various industries and academic fields as more individuals try to ascertain what makes a crowd intelligent and how crowd intelligence can be utilized to perform tasks that would be difficult for any single individual. One of the most prevalent examples of the utility of crowds being used to accomplish tasks comes in the form of markets, where groups of individuals contribute their private information and perspective for personal gain, and in so doing, help to attain an accurate estimation of a quantity. This quantity could be the value of a particular company's stock or the likelihood of some event happening in the future.\\
 \newline
-A prediction market acts as a vehicle for obtaining likelihood estimates of a particular event or set of events occurring.\footnote{See \cite{1} for more details.} Participants in the market pay for a contract that is tied to a particular probability distribution over the set of events in question. The market determines both how to aggregate information elicited from market participants as well as how to reward individual contracts according to some payoff function. There is strong evidence backing up the accuracy of different prediction markets \cite{2}.\\
+A prediction market acts as a vehicle for obtaining estimates of how likely it is for a particular event or set of events to occur.\footnote{See \cite{1} for more details.} Participants in the market pay for a contract that is tied to a particular probability distribution over the set of events in question. The market determines both how to aggregate information elicited from market participants as well as how to reward individual contracts according to some payoff function. There is strong evidence backing up the accuracy of different prediction markets \cite{2}.\\
 \newline
-There is also substantial research focused on crowd dynamics and what characteristics make for an optimal crowd in a setting where the objective is to estimate a given quantity \cite{3}. The purpose of this paper is to determine whether or not we can build a prediction market that changes its incentive scheme to ensure that the participating population closely matches the optimal composition given the pool of potential participants. We will first provide a brief background on scoring rules for prediction markets. Then, we will take a more in-depth look at some current literature regarding composition of forecasting groups \cite{3}. This background will allow us to frame the motivating question for this research. After proposing the incentive structure that is meant to ensure optimal group composition, we will then evaluate the benefits and shortcomings of the scheme and suggest both improvements and directions for future work.
+There is also substantial research focused on crowd dynamics and what characteristics make for an optimal crowd in a setting where the objective is to estimate a given quantity \cite{3}. The purpose of this paper is to determine whether or not we can build a prediction market that offers an incentive scheme to ensure that the participating population closely matches the optimal composition given the pool of potential participants. We will first provide a brief background on scoring rules for prediction markets. Then, we will take a more in-depth look at some current literature regarding composition of forecasting groups \cite{3}. This background will allow us to better frame the motivating question for this research. After proposing the incentive structure that is meant to ensure optimal group composition, we will then evaluate the benefits and shortcomings of the scheme and suggest both improvements and directions for future work.
 
 %------------------------------------------------
 
@@ -112,7 +113,7 @@ There is also substantial research focused on crowd dynamics and what characteri
 
 \subsection{Scoring Rules}
 
-In a prediction market setting, participants are asked to report a vector of probabilities denoting the likelihoods of different events occurring. The reward for a particular vector of probabilities is a function of the vector and the set of events that eventually occurred. This function is known as a scoring rule and is typically denoted as:
+In a prediction market setting, participants are asked to report a vector of probabilities denoting the likelihoods of different events occurring. The reward for a particular vector of probabilities is a function of the vector and the set of events that eventually occurs. This function is known as a scoring rule and is typically denoted as:
 
 \begin{equation}
 \label{scoringrule}
@@ -135,7 +136,7 @@ We know that for a (strictly) proper scoring rule, the function $G(\vec{p})$ is 
 
 \subsection{Optimal Forecasting Groups}
 
-The following model and results stem from the work by Lamberson and Page (LP) \cite{3} as they characterized what makes an optimal forecasting group under their assumptions. This section summarizes the details of their model and results that are relevant to the work in this paper.\\
+The following model and results stem from the work by Lamberson and Page (LP) \cite{3} as they characterize what constitutes an optimal forecasting group under their assumptions. This section summarizes the details of their model and results that are relevant to the work in this paper.\\
 \subsubsection{Basic Framework}
 In the model, agents have a goal of estimating some quantity $V$. Each of the $M$ agents is characterized by a random variable $s_i$, which is their prediction of the quantity $V$. The random variable $\epsilon_i = s_i - V$ is the error in prediction for the $i_{th}$ agent. The aggregate estimate of the crowd of agents is $G(\vec{s}) = \frac1M \sum_i s_i$. In \cite{3}, LP focuses solely on the simple average as a way of aggregating individual estimates. Finally, the metric for accuracy in LP is group squared error, $(G(\vec{s}) - V)^2)$. LP then uses the \textit{bias-variance-covariance} decomposition to expand the expected value of the group squared error:
 
@@ -179,7 +180,7 @@ E[\epsilon_a] = 0 \rightarrow E[\epsilon_a^2] = var(\epsilon_a) - (E[\epsilon_a]
 E[\epsilon_b] = 0 \rightarrow E[\epsilon_b^2] = var(\epsilon_b) - (E[\epsilon_b])^2 = var(\epsilon_b)
 \end{equation}\\
 
-LP goes on to define $cov(\epsilon_a)$ as the covariance in prediction errors between two individual agents of type $a$ (i.e. intra-group covariance). Likewise, $cov(\epsilon_b)$ denotes the covariance in prediction errors between two agents of type $b$. Finally, $cov(\epsilon_a, \epsilon_b)$ (inter-group covariance) is the covariance in prediction errors between the two types. In this setting, covariance indicates how similarly prediction errors for agents will vary together. For example, errors in prediction may covary if the agents draw upon similar resources or information in making their prediction or if they have similar perspectives on the problem. The final relevant assumption that LP makes is the enforcement of a condition, \textit{type coherence}.\\
+LP goes on to define $cov(\epsilon_a)$ as the covariance in prediction errors between two individual agents of type $a$ (i.e. intra-group covariance). Likewise, $cov(\epsilon_b)$ denotes the covariance in prediction errors between two agents of type $b$. Finally, $cov(\epsilon_a, \epsilon_b)$ (inter-group covariance) is the covariance in prediction errors between the two types. Covariance indicates how similarly prediction errors for agents will vary together. For example, errors in prediction may covary if the agents draw upon similar resources or information in making their prediction or if they have similar perspectives on the problem. The final relevant assumption that LP makes is the enforcement of a condition, \textit{type coherence}.\\
 
 \textit{Type coherence} is satisfied if the quantity:
 
@@ -211,15 +212,15 @@ $
 $
 }\\
 
-From this equation, we can see that as $M \rightarrow \infty$, the optimal fraction of type $a$ individuals approaches $\frac{cov(\epsilon_b) - cov(\epsilon_a,\epsilon_b)}{TC(a,b)}$. This second equation shows that the proportion of $a$ type should increase as the variance (i.e. inaccuracy) of type $a$ errors decreases with respect to the variance of type $b$ errors. Furthermore, when we take the limit as $M \rightarrow \infty$, accuracy becomes less of a determining factor in the proportions of the two types. As the intra-group covariance of one group increases (the errors of that group covary more), the proportion of the opposing group needed to minimize the expected group error increases. Hence, when as the group gets larger, it favors the type with more internal disagreement in prediction errors.\\
+From this equation, we can see that as $M \rightarrow \infty$, the optimal fraction of type $a$ individuals approaches $\frac{cov(\epsilon_b) - cov(\epsilon_a,\epsilon_b)}{TC(a,b)}$. This second equation shows that the proportion of $a$ types in the bidding pool should increase as the variance (i.e. inaccuracy) of type $a$ errors decreases with respect to the variance of type $b$ errors. Furthermore, when we take the limit as $M \rightarrow \infty$, accuracy becomes less of a determining factor in the proportions of the two types. As the intra-group covariance of one group increases (the errors of that group covary more), the proportion of the opposing group needed to minimize the expected group error increases. Hence, as the group gets larger, it favors the type with more internal disagreement in prediction errors.\\
 \newline
 This concludes the summary of the results of LP, which serve as a stepping stone for the continued work proposed in this paper.
 
 \section{Incentive Scheme for Maintaining Optimal Group Composition}
 
-The insights from LP \cite{3} regarding optimal composition of forecasting groups can be extended in a number of different ways. In the context of prediction markets though, we can try to use this knowledge to encourage types that would contribute favorably to the group's average error and discourage the type that would contribute unfavorable to the group's average error. Using additional incentives or disincentives in addition to the use of proper scoring rules, we can encourage agents to participate in the market if they valuable information regarding the event being predicted and if they are of a type that would improve the group's error in expectation.\\
+The insights from LP \cite{3} regarding optimal composition of forecasting groups can be extended in a number of different ways. In the context of prediction markets, we can try to use this knowledge to encourage types that would contribute favorably to the group's average error and discourage the type that would contribute unfavorably to the group's average error. Using additional incentives or disincentives in addition to the use of proper scoring rules, we can encourage agents to participate in the market if they have valuable information regarding the event being predicted and if they are of a type that would improve the group's error in expectation.\\
 
-We assume that the agents know their type and are aware of the current group composition.
+We assume that the agents know their type and are aware of the current group composition. We also assume that agents bid only once.
 
 \subsection{Strict Incentive Scheme}
 
@@ -254,7 +255,9 @@ where $G(\vec{p})$ is the expected reward for reporting $\vec{p}$. Now, to incen
 \pi(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A,B+1)] \ if \ \theta=b
 \end{equation}
 
-where $C$ is a constant chosen by the market organizer and $GE(A,B)$ denotes the current proportions of agents in the crowd. Without asking for an individual to report their type, $C$ must be chosen in such a way that the type that is less favored or will produce more error in the group estimation of the probability is completely disincentivized from participating. This means that for the unfavored type, $C[GE(A,B) - GE(A+1,B)] \leq -|\max_{\vec{p}}G(\vec{p})|$. This would ensure that for the highest possible $G(\vec{p})$ value for the unwanted type, that type would have no incentive to bid. For the majority of the paper, we will consider how we choose $C$ in the context of a quadratic scoring rule where the maximum possible expected payoff is 1.\\
+where $C$ is a constant chosen by the market organizer and $GE(A,B)$ denotes the current proportions of agents in the crowd. This term either rewards or punishes the externality that their inclusion in the bidding pool creates. If $[GE(A,B) - GE(A,B+1)] > 0$, the expected error in prediction decreases and the agent of type $b$ will receive positive compensation in expectation. Note that this term depends not on the reported type but the actual type of the agent; the agent cannot act to improve this value.\\
+
+Without asking for an individual to report their type, $C$ must be chosen in such a way that the type that is less favored or will produce more error in the group estimation of the probability is completely disincentivized from participating. This means that for the unfavored type, $C[GE(A,B) - GE(A+1,B)] \leq -|\max_{\vec{p}}G(\vec{p})|$. This would ensure that for the highest possible $G(\vec{p})$ value for the unwanted type, that type would have no incentive to bid. For the majority of the paper, we will consider how we choose $C$ in the context of a quadratic scoring rule where the maximum possible expected payoff is 1.\\
 
 Both $GE(A,B) - GE(A+1,B)$ and $GE(A,B) - GE(A,B+1)$ can take on positive or negative values. \\
 
@@ -310,7 +313,7 @@ The initialization parameters include: $A$, $B$, $var(\epsilon_a)$, $var(\epsilo
 
 \textit{Generation of Predictions}\\
 
-Using the covariance matrix and the value $V$, the simulation constructs a multivariate normal distribution and draws from it. The draw, which is a vector of length $M$, represents the agents beliefs of the true value $V$. Note that these are not probability values and must be transformed to a vector of predictions where each entry is between 0 and 1. This transformation is done by standardizing each entry in the vector by the agent's standard deviation and mean and finding the cumulative distribution function at that value.
+Using the covariance matrix and the value $V$, the simulation constructs a multivariate normal distribution and draws from it. The draw, which is a vector of length $M$, represents the agents beliefs of the true value $V$. Note that these are not probability values and must be transformed to a vector of predictions where each entry is between 0 and 1. This transformation is done by standardizing each entry in the vector by the agent's standard deviation and mean and finding the cumulative distribution function at that value.\\
 
 \begin{figure}[h]
 \centering
@@ -318,13 +321,15 @@ Using the covariance matrix and the value $V$, the simulation constructs a multi
 \caption{Simulation Workflow for Strict Incentive Scheme}
 \end{figure}
 
+
+
 \textit{Market Simulation}\\
 
 Note that from the result by LP in \cite{3}, the expected group prediction error is undefined for a group of size 0 ($M = 0$). Therefore, we cannot apply our additional incentive to the first market participant. We assume arbitrarily to know the type of the first market participant. In reality, this would simply introduce an "off-by-one" error in our estimation of the expected group error.\\
 
 The first participant is selected randomly from the pool of available participants, all of whom have no additional incentive or disincentive to participate. From there, the market organizer calculates the incentives and appropriate $C$ such that the less desirable type for the current state of the market is totally disincentivized from joining per the proposed scheme. Given the newly updated set of incentives, the remaining individuals that have not yet bid recalculate their expected payoffs and choose to remain in the available bidding pool if their payoff is greater than 0. The market simulation terminates when the available pool of willing participants has size 0.\\
 
-The following are a couple assumptions to note about the simulation. First, the choice to choose randomly from the pool enforces arrival to market happens in a random order; there are no high-speed traders in this market. Second, information is integrated into the market immediately and each bidder can update their choice to participate instantaneously.
+The following are a couple assumptions to note about the simulation. First, the choice to choose randomly from the pool enforces that arrival to market happens in no particular order; there are no high-speed traders in this market. Second, information is integrated into the market immediately and each bidder can update their choice to participate instantaneously.
 
 \subsubsection{Results for Strict Incentive Scheme}
 
@@ -347,20 +352,20 @@ Previously, the scheme made the payoff for any market participant proportional t
 
 \resizebox{0.45 \textwidth}{!}{
 $
-\pi_i(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A+1,B)] - \sum_{j>i} e^{-j} \Delta GE_j \ if \ \theta=a
+\pi_i(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A+1,B)] - \sum_{j>i} e^{-(j-i)} \Delta GE_j \ if \ \theta=a
 $
 }\\
 
 \resizebox{0.45 \textwidth}{!}{
 $
-\pi_i(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A,B+1)] -  \sum_{j>i} e^{-j} \Delta GE_j\ if \ \theta=b
+\pi_i(\vec{p}, \theta) = G(\vec{p}) + C[GE(A,B) - GE(A,B+1)] -  \sum_{j>i} e^{-(j-i)} \Delta GE_j\ if \ \theta=b
 $
 }\\
 \newline
 
 where $j$ indicates an agent that participates after the current agent $i$ participates. Furthermore, $\Delta GE_j$ is short for the change in expected group error following the inclusion of $j$. If $\Delta GE_j > 0$, expected group error increased, hence the subtraction of this term from the expected payoff.\\
 
-This term will reward current participants in the market if future participants bring the expected group error down as well. This term provides agent $i$ with a positive incentive to report their type truthfully. If the agent reports untruthfully, it does not affect that agent in the near term but it will skew the known proportions in the crowd such that future agents cannot make fully-informed decisions as to whether or not they are of the right type for the market at that moment. This could lead to the inclusion of the wrong type at a particular stage in the market after $i$ has participated.
+This term will reward current participants in the market if future participants bring the expected group error down as well. This term provides agent $i$ with a positive incentive to report their type truthfully. If the agent reports untruthfully, it does not affect that agent in the near term but it will skew the known proportions in the crowd such that future agents cannot make fully-informed decisions as to whether or not they are of the right type for the market at that moment. This could lead to the inclusion of the wrong type at a particular stage in the market after $i$ has participated. With this additional term, the inclusion of the wrong type after $i$ has participated will result in a lower payoff for $i$ in expectation. Note that exponential weights on the terms are to ensure that the changes in error immediately following $i$ are more relevant to $i's$ expected payoff and that the total penalty or benefit from this term is bounded.\\
 
 Now that the framework is capable of reliably eliciting the truthful types from the individual agents, we are able to relax the strict bounds on the value $C$ to allow more individuals to participate and avoid a state where no one participates. To do this, in the simulation, the market organizer will initialize $C$ based on the conventions for the strict incentive scheme. If no agents have an expected positive payoff, decrease the magnitude of $C$. For example, in the simulation algorithm, $C$ was rescaled as so:
 
@@ -373,7 +378,7 @@ where $\delta \in \mathbb{R}$ and $0 < \delta < 1$. This need not be the only co
 
 \subsubsection{Results for Relaxed Incentive Scheme}
 
-The introduction of an adjustable $C$ term and incentive for truthful reporting of type led to an increase in liquidity as can be seen below:
+The introduction of an adjustable $C$ term and incentive for truthful reporting of type leads to an increase in liquidity as can be seen below:
 
 \begin{figure}[h]
 \centering
@@ -381,11 +386,11 @@ The introduction of an adjustable $C$ term and incentive for truthful reporting 
 \caption{Market Simulation with Relaxed C: A=200, B=100}
 \end{figure}
 
-Here, the incentive scheme adapts to ensure that the market doesn't simply stop when the current proportions for the participating pool are very close or equal to the optimal proportions. One can see from the second subplot that the incentives for type $a$ and type $b$ oscillate as more individuals are incorporated into the pool.
+Here, the incentive scheme adapts to ensure that the market doesn't simply stop when the current proportions for the participating pool are very close or equal to the optimal proportions. One can see from the second subplot that the incentives for type $a$ and type $b$ oscillate as more individuals are incorporated into the pool.\\
 
-Another interesting thing to note about the two subplots is how they change when the participating group size gets to be around 180. We see a large spike in the incentive for a type $b$ to participate as well as the proportion of the group that is of type $a$ to increase with respect to the optimal proportion. At this point, the available type $b$ agents have all participated.
+Another interesting thing to note about the two subplots is how they change when the participating group size gets to be around 180. We see a large spike in the incentive for a type $b$ to participate as well as the proportion of the group that is of type $a$ to deviate from the optimal proportion. At this point, the available type $b$ agents have all participated.\\
 
-The value of this scheme is that at any point during market operation, the market is optimally incentivizing agents that will improve the group error in expectation. With respect to accuracy, below is a graph illustrating the average prediction error of the relaxed incentive scheme versus the average error of a market without any incentive scheme.
+The value of this scheme is that at any point during market operation, the market is optimally incentivizing agents that will improve the group error in expectation. With respect to accuracy, below is a graph illustrating the average prediction error of the relaxed incentive scheme versus the average error of a market without any incentive scheme.\\
 
 \begin{figure}[h]
 \centering
@@ -393,18 +398,21 @@ The value of this scheme is that at any point during market operation, the marke
 \caption{Accuracy Comparison for Relaxed Scheme: A=200, B=100 (average of 100 trials)}
 \end{figure}
 
-We can see that the incentive scheme helps to keep the true error low throughout the progression of bidding in the market. Notice as well that the average error for the incentive scheme begins to rise at a crowd size of ~240 individuals. This sudden shift corresponds to the incentive scheme running out of bidders of the preferred type and allowing the other type to bid as well. How to detect when the market has exhausted a particular type in the available pool of participants will be discussed as a topic of future work.
+We can see that the incentive scheme helps to keep the true error low throughout the progression of bidding in the market. Notice as well that the average error for the incentive scheme begins to rise at a crowd size of ~240 individuals. This sudden shift corresponds to the incentive scheme running out of bidders of the preferred type and allowing the other type to bid as well. How to detect when the market has exhausted a particular type in the available pool of participants will be discussed as a topic of future work. Note that the 240 and 180 values mentioned do not correspond exactly since the second figure is an average over 100 simulations.
 
 \subsubsection{Comparison to a Market Scoring Rule}
 
-Originally, one goal was to compare the scheme proposed in this paper with the well-known market scoring rule \cite{5} in order to compare the accuracy of one to another in determining the aggregate prediction for the likelihood of an event happening. However, there is a structural difference between the two setups that makes making a fair comparison difficult. The results from LP in \cite{3} rely heavily on the idea that the agents making forecasts are totally independent. However, in a market scoring rule, the utility an agent receives is linked to the last individual's prediction and oftentimes, the prediction made by an agent is altered by their reasoning over the last agent's bid. For the sake of experimentation, a market was simulated both using a market scoring rule and the proposed scheme, but the simulation revealed no significant insights.
+Originally, one goal was to compare the scheme proposed in this paper with the well-known market scoring rule \cite{5} in order to compare the accuracy of one to another in determining the aggregate prediction for the likelihood of an event happening. However, there is a structural difference between the two setups that makes making a fair comparison difficult. The results from LP in \cite{3} rely on the idea that agents' forecasts do not affect others' forecasts. However, in a market scoring rule, the utility an agent receives is linked to the last individual's prediction and oftentimes, the prediction made by an agent is altered by their reasoning over the last agent's bid. For the sake of experimentation, a market was simulated both using a market scoring rule and the proposed scheme, but the simulation revealed no significant insights.
 
 \section{Future Work}
 
 One of the more interesting results from this paper is that the relaxed incentive scheme could maintain an optimally wise crowd at each moment of the operation of a market, up until the point where a particular type of forecaster was scarce. Given a prior distribution over the relative quantities of individual types in a prediction market, one could devise a method for shutting down a prediction market when the probability that the more desirable type has not shown up in several iterations becomes to low, indicating that the market has exhausted that perspective.\\
 
-Two other topics for future work that this paper naturally leads the reader to are how the proposed incentive system changes when different (non quadratic) scoring rules are used and how much it would cost to run the incentive scheme. While it was hoped these questions could be answered in this paper, tackling the issues of thin bidding pools in the strict scheme and eliciting honest type reporting were treated with higher priority.
+Two other topics for future work that follow naturally are how the proposed incentive system changes when different (non quadratic) scoring rules are used and how much it would cost to run the incentive scheme. While it was hoped these questions could be answered in this paper, tackling the issues of thin bidding pools in the strict scheme and eliciting honest type reporting were treated with higher priority.
 
+\section{Acknowledgements}
+
+Thank you to Vincent Conitzer for his feedback on the project as well as supporting materials on scoring rules. Thank you to Michael Albert for help in the initial stages of the research project. Also, thank you to Sayan Mukherjee for his help in modeling truncated normal distributions.
 
 
 
